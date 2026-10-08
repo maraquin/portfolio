@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Spell of Asia';
+    src: url("../fonts/Spell-of-Asia.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'Cocogoose';
+    src: url("../fonts/Cocogoose-Pro-Ultralight-trial.ttf");
+}
+
+body {
+    background-color: #fff3e5;
+    font-family: 'Cocogoose';
+}
+
+nav {
+    list-style: none;
+}
+
+.présentation {
+    font-family: "Spell of Asia";
+    justify-content: center;
+    text-align: center;
+    font-size: 100px;
+}
+
+.présentation h1 {
+    font-weight: 100;
+}
