@@ -13,8 +13,15 @@ body {
     font-family: 'Cocogoose';
 }
 
-nav {
-    list-style: none;
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
 }
 
 .présentation {
