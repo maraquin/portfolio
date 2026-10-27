@@ -8,6 +8,10 @@
     src: url("../fonts/Cocogoose-Pro-Ultralight-trial.ttf");
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: #fff3e5;
     font-family: 'Cocogoose';

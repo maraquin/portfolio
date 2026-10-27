@@ -1,10 +1,11 @@
 {
-  "name": "portfolio",
-  "private": true,
-  "scripts": {
-    "dev": "vite"
-  },
-  "devDependencies": {
-    "vite": "^5.4.0"
-  }
+    "name": "portfolio",
+    "version": "1.O.O",
+    "private": true,
+    "scripts": {
+      "dev": "vite"
+    },
+    "devDependencies": {
+      "vite": "^5.4.0"
+    }
 }
