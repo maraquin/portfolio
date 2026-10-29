@@ -17,33 +17,41 @@ body {
     font-family: 'Nexa';
     font-size: 19px;
     font-weight: 100;
+    margin: 0px;
 }
 
 
 
 /* header */
 
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding-top: 1vh;
+}
+
 nav {
     margin-left: auto;
     margin-right: auto;
-    width: 100vw;
+    width: 80vw;
 }
 
 nav ul {
+    backdrop-filter: blur(10px);
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     padding-left: auto;
     padding-right: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    /*
-    background-color: white;
+    margin-bottom: 3vh;
+    padding-top: 3vh;
+    padding-bottom: 3vh;
     border-radius: 50px;
-    box-shadow: 5px 5px 10px rgb(155, 155, 155);
-    */
+    box-shadow: 5px 5px 10px rgba(12, 12, 12, 0.345);
+    background-color: #fdfaf622;
+    padding-left: 10vh;
+    padding-right: 10vh;
 }
 
 nav a {
@@ -78,9 +86,8 @@ nav a {
 
 
 .contenu section {
-    width: 100vw;
-    height: 100vh;
-    padding-top: 1vh;
+    height: 85vh;
+    padding-top: 15vh;
     padding-left: 1vh;
 }
 
@@ -103,9 +110,13 @@ nav a {
     margin-left: 2vw;
 }
 
+#apropos img {
+    height: 100%;
+}
+
 
 #apropos div p {
-    width: 70%;
+    width: 90%;
     font-size: larger;
 }
 
@@ -113,7 +124,59 @@ nav a {
 
 
 /* section parcours */
+#parcours div {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
 
 #parcours li {
     list-style: none;
+    padding: 20px;
+    margin: 5vh;
+    text-align: center;
+}
+
+#parcours ul {
+    display: flex;
+    padding-left: 0px;
+}
+
+
+
+/* compétences */
+
+#competences {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(26, 26, 26);
+}
+
+#competences li {
+    list-style: none;
+    border: solid #8c4b00;
+    box-shadow: 5px 5px 10px #8c4b0066;
+    border-radius: 50px;
+    display: inline-block;
+    padding: 1vh 2vh;
+    margin: 3vh 1vh;
+}
+
+#competences ul {
+    padding-left: 0px;
+    padding-right: auto;
+}
+
+#competences div {
+    background-color: #fff8f0;
+    border: solid #8c4b00;
+    color: #8c4b00;
+    border-radius: 20px;
+    margin: 5vh 2vh;
+    padding: 2vh 5vh;
+    width: 50%;
+    height: 60%;
+    text-align: center;
 }
