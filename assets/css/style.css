@@ -19,6 +19,10 @@ body {
     font-weight: 100;
 }
 
+
+
+/* header */
+
 nav {
     margin-left: auto;
     margin-right: auto;
@@ -47,6 +51,11 @@ nav a {
     color: black;
 }
 
+
+
+
+/* presentation */
+
 .présentation {
     font-family: "Spell of Asia";
     text-align: center;
@@ -67,7 +76,44 @@ nav a {
     margin-right: auto;
 }
 
-div {
+
+.contenu section {
     width: 100vw;
     height: 100vh;
+    padding-top: 1vh;
+    padding-left: 1vh;
+}
+
+
+
+
+
+/* section à propos */
+
+#apropos {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    display: flex;
+}
+
+
+#apropos div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 2vw;
+}
+
+
+#apropos div p {
+    width: 70%;
+    font-size: larger;
+}
+
+
+
+
+/* section parcours */
+
+#parcours li {
+    list-style: none;
 }
