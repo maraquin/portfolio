@@ -44,6 +44,7 @@
                         de ma passion pour le montage vidéo et la création
                         audiovisuelle.
                     </p>
+                    <a href="./assets/img/cv.pdf" download class="cv">Télécharger mon CV</a>
                 </div>
         </section>
 
@@ -98,9 +99,20 @@
         <section id="projets">
             <h1>PROJETS</h1>
             <div>
-                <p>Chaîne Youtube :</p>
-                <p>Graphisme :</p>
-                <p></p>
+                <ul>
+                    <li data-accName="Item 1">
+                        <h2>Chaîne Youtube</h2>
+                    </li>
+                    <li data-accName="Item 2">
+                        <h2>Page 2</h2>
+                    </li>
+                    <li data-accName="Item 3">
+                        <h2>Page 3</h2>
+                    </li>
+                    <li data-accName="Item 4">
+                        <h2>Page 4</h2>
+                    </li>
+                </ul>
             </div>
         </section>
 
@@ -109,7 +121,25 @@
 
         <section id="contact">
             <h1>CONTACT</h1>
-            <form action=""></form>
+            <form action="/ma-page-de-traitement" method="post">
+                <ul>
+                  <li>
+                    <label for="name">Nom</label>
+                    <input type="text" id="name" name="user_name" />
+                  </li>
+                  <li>
+                    <label for="mail">E-mail</label>
+                    <input type="email" id="mail" name="user_mail" />
+                  </li>
+                  <li>
+                    <label for="msg">Message</label>
+                    <textarea id="msg" name="user_message"></textarea>
+                  </li>
+                </ul>
+                <div class="button">
+                    <button type="submit">Envoyer le message</button>
+                </div>
+            </form>
         </section>
 
     </main>

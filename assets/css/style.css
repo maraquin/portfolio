@@ -22,7 +22,7 @@ html {
 }
 
 body {
-    background-color: #fff3e5;
+    background-color: #ffe9d0;
     font-family: 'Nexa';
     font-size: 19px;
     font-weight: 100;
@@ -34,6 +34,7 @@ body {
     margin: 0px;
     font-family: 'Highrise';
     font-size: 10rem;
+    color: #180e04;
 }
 
 .contenu section {
@@ -115,9 +116,13 @@ nav a {
 /* section à propos */
 
 #apropos {
-    background-color: rgb(26, 26, 26);
+    background-color: #180e04;
     color: white;
     display: flex;
+}
+
+#apropos h1{
+    color: white;
 }
 
 
@@ -134,7 +139,16 @@ nav a {
 
 #apropos div p {
     width: 90%;
-    font-size: larger;
+}
+
+.cv {
+    text-decoration: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #663600;
+    display: inline-block;
+    width: fit-content;
+    padding: 1vh 2vh;
 }
 
 
@@ -169,7 +183,7 @@ nav a {
     justify-content: space-between;
     justify-content: center;
     align-items: center;
-    background-color: rgb(26, 26, 26);
+    background-color: #180e04;
 }
 
 #competences li {
@@ -190,7 +204,7 @@ nav a {
 #competences div {
     background-color: #fff8f0;
     border: solid #8c4b00;
-    color: #8c4b00;
+    color: #663600;
     border-radius: 20px;
     width: 50%;
     height: 60%;
@@ -200,4 +214,137 @@ nav a {
 
 #competences h1 {
     font-size: 8rem;
+}
+
+
+
+/* section Projets */
+
+#projets ul {
+    padding: 20px;
+    display: flex;
+    height: 60vh;
+    margin: 0vh 20vw;
+    gap: 4vh;
+
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+#projets li {
+    list-style-type: none;
+    background-color: #eeeeee;
+    border: 1px solid #dddddd;
+    border-radius: 30px;
+    padding: 20px;
+  
+    flex: 0 0 100%;
+
+    scroll-snap-align: center;
+}
+  
+#projets li:nth-child(even) {
+    background-color: cyan;
+}
+
+/* flèches gauche-droite */
+
+#projets ul::scroll-button(*) {
+    border: 0;
+    font-size: 2rem;
+    background: none;
+    color: black;
+    opacity: 0.7;
+    cursor: pointer;
+  }
+  
+#projets ul::scroll-button(*):hover, #projets ul::scroll-button(*):focus {
+    opacity: 1;
+}
+  
+#projets ul::scroll-button(*):active {
+    translate: 1px 1px;
+}
+  
+#projets ul::scroll-button(*):disabled {
+    opacity: 0.2;
+    cursor: unset;
+}
+
+#projets ul::scroll-button(left) {
+    content: "◄" / "Previous";
+}
+  
+#projets ul::scroll-button(right) {
+    content: "►" / "Next";
+  }
+#projets ul {
+    anchor-name: --my-carousel;
+}
+  
+#projets ul::scroll-button(*) {
+    position: absolute;
+    position-anchor: --my-carousel;
+}
+
+#projets ul::scroll-button(left) {
+    right: calc(anchor(left) - 10vh);
+    bottom: calc(anchor(center) - 2vh);
+}
+  
+#projets ul::scroll-button(right) {
+    left: calc(anchor(right) - 10vh);
+    bottom: calc(anchor(center) - 2vh);
+}
+
+
+/* bouttons */
+
+#projets ul {
+    scroll-marker-group: after;
+}
+
+#projets ul::scroll-marker-group {
+    position: absolute;
+    position-anchor: --my-carousel;
+    top: calc(anchor(bottom) - 70px);
+    justify-self: anchor-center;
+  
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#projets li::scroll-marker {
+    content: attr(data-accName);
+    width: 16px;
+    height: 16px;
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    text-indent: 16px;
+}
+
+#projets li::scroll-marker:target-current {
+    background-color: black;
+}
+  
+  
+
+
+
+
+
+
+
+/* section Contact */
+
+#contact {
+    background-color: #180e04;
+    color: white;
+}
+
+#contact h1 {
+    color: white;
 }
