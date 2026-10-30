@@ -8,6 +8,15 @@
     src: url("/assets/fonts/Nexa-ExtraLight.ttf");
 }
 
+@font-face {
+    font-family: 'Highrise';
+    src: url("/assets/fonts/HighriseFont-Bold-Demo.otf");
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -18,6 +27,19 @@ body {
     font-size: 19px;
     font-weight: 100;
     margin: 0px;
+    width: 100%;
+}
+
+.contenu h1 {
+    margin: 0px;
+    font-family: 'Highrise';
+    font-size: 10rem;
+}
+
+.contenu section {
+    width: 100%;
+    height: 100vh;
+    padding-top: 15vh;
 }
 
 
@@ -29,6 +51,7 @@ header {
     top: 0;
     z-index: 1000;
     padding-top: 1vh;
+    height: 19vh;
 }
 
 nav {
@@ -44,14 +67,10 @@ nav ul {
     justify-content: space-between;
     padding-left: auto;
     padding-right: auto;
-    margin-bottom: 3vh;
-    padding-top: 3vh;
-    padding-bottom: 3vh;
+    padding: 3vh 10vh;
     border-radius: 50px;
     box-shadow: 5px 5px 10px rgba(12, 12, 12, 0.345);
     background-color: #fdfaf622;
-    padding-left: 10vh;
-    padding-right: 10vh;
 }
 
 nav a {
@@ -64,31 +83,29 @@ nav a {
 
 /* presentation */
 
-.présentation {
+.presentation {
     font-family: "Spell of Asia";
     text-align: center;
     font-size: 10vh;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
 
-.présentation img {
-    height: 70vh;
+.presentation img {
+    height: 65vh;
     margin-left: auto;
     margin-right: auto;
     filter: drop-shadow(-5px 5px 10px rgb(155, 155, 155));
 }
 
-.présentation h1 {
+.presentation h1 {
     font-weight: 100;
-    margin-top: -100px;
+    margin-top: -12vh;
     margin-left: auto;
     margin-right: auto;
-}
-
-
-.contenu section {
-    height: 85vh;
-    padding-top: 15vh;
-    padding-left: 1vh;
 }
 
 
@@ -150,6 +167,7 @@ nav a {
 #competences {
     display: flex;
     justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background-color: rgb(26, 26, 26);
 }
@@ -174,9 +192,12 @@ nav a {
     border: solid #8c4b00;
     color: #8c4b00;
     border-radius: 20px;
-    margin: 5vh 2vh;
-    padding: 2vh 5vh;
     width: 50%;
     height: 60%;
     text-align: center;
+    margin: 0vh 2vw;
+}
+
+#competences h1 {
+    font-size: 8rem;
 }
