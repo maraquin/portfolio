@@ -120,26 +120,35 @@
         <!-- section contact -->
 
         <section id="contact">
-            <h1>CONTACT</h1>
-            <form action="/ma-page-de-traitement" method="post">
-                <ul>
-                  <li>
-                    <label for="name"></label>
-                    <input type="text" id="name" name="user_name" placeholder="Nom"/>
-                  </li>
-                  <li>
-                    <label for="mail"></label>
-                    <input type="email" id="mail" name="user_mail" placeholder="E-Mail"/>
-                  </li>
-                  <li>
-                    <label for="msg"></label>
-                    <textarea id="msg" name="user_message" placeholder="Message"></textarea>
-                  </li>
-                </ul>
-                <div class="button">
-                    <button type="submit">Envoyer le message</button>
-                </div>
-            </form>
+            <div class="profil">
+                <img src="./assets/img/pdp-wbg-r.png" alt="">
+                <h3>Maxime Raquin</h3>
+            </div>
+            <div class="formulaire">
+                <h1>CONTACT</h1>
+                <form action="/ma-page-de-traitement" method="post">
+                    <ul>
+                      <li>
+                        <label for="name"></label>
+                        <input type="text" id="name" name="user_name" placeholder="Nom"/>
+                        
+                        <label for="firstname"></label>
+                        <input type="text" id="firstname" name="user_firstname" placeholder="Prénom"/>
+                      </li>
+                      <li>
+                        <label for="mail"></label>
+                        <input type="email" id="mail" name="user_mail" placeholder="E-Mail"/>
+                      </li>
+                      <li>
+                        <label for="msg"></label>
+                        <textarea id="msg" name="user_message" placeholder="Message"></textarea>
+                      </li>
+                    </ul>
+                    <div class="button">
+                        <button type="submit">Envoyer le message</button>
+                    </div>
+                </form>
+            </div>
         </section>
 
     </main>
