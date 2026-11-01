@@ -32,10 +32,10 @@ body {
     width: 100%;
 }
 
-.contenu h1 {
+.contenu h2 {
     margin: 0px;
     font-family: 'Highrise';
-    font-size: 10rem;
+    font-size: 7rem;
     color: #080808;
 }
 
@@ -122,10 +122,24 @@ nav a {
     background-color: #080808;
     color: white;
     display: flex;
+    height: 80vh;
 }
 
-#apropos h1{
+#apropos h2{
     color: white;
+}
+
+#apropos h3 {
+    font-weight: bold;
+    font-size: 4vh;
+    margin-top: 5vh;
+    margin-bottom: 0;
+}
+
+#apropos h5 {
+    font-size: 2vh;
+    margin: 0;
+    color: #4b4b4b;
 }
 
 
@@ -139,7 +153,6 @@ nav a {
     height: 100%;
 }
 
-
 #apropos div p {
     width: 90%;
 }
@@ -149,17 +162,34 @@ nav a {
     border-radius: 20px;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 182, 46);
+    border: solid rgb(255, 182, 46);
     display: inline-block;
     width: fit-content;
     padding: 1vh 2vh;
+    font-weight: 600;
+    margin-top: 3vh;
+    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
+
+.cv:hover {
+    background-color: white;
+    border: solid rgb(255, 182, 46);
+    color: rgb(255, 182, 46);
+    box-shadow: 0px 5px 10px rgba(255, 182, 46, 0.322);
+    transform: translateY(-2px);
+}
+
+.cv:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
 
 
 
 
 /* section parcours */
 
-#parcours h1 {
+#parcours h2 {
     display: flex;
     justify-content: end;
     margin-right: 10vh;
@@ -227,7 +257,7 @@ nav a {
     margin: 0vh 2vw;
 }
 
-#competences h1 {
+#competences h2 {
     font-size: 8rem;
 }
 
@@ -375,7 +405,7 @@ nav a {
     justify-content: center;
 }
 
-#contact h1 {
+#contact h2 {
     color: white;
 }
 
