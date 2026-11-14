@@ -10,13 +10,21 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li><a href="#apropos">A propos</a></li>
-                <li><a href="#parcours">Parcours</a></li>
-                <li><a href="#competences">Compétences</a></li>
-                <li><a href="#projets">Projets</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="logo">
+                <a href="#apropos"><img src="./assets/img/memoji.png" alt=""></a>
+            </div>
+            <div class="navigation">
+                <ul>
+                    <li><a href="#apropos">A propos</a></li>
+                    <li><a href="#parcours">Parcours</a></li>
+                    <li><a href="#competences">Compétences</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="light-dark">
+
+            </div>
         </nav>
     </header>
     <main class="presentation">
@@ -29,11 +37,10 @@
         <!-- section à propos -->
 
         <section id="apropos">
-                <img src="/assets/img/pdp-wbg-r.png" alt="photo de profil">
+                <img src="/assets/img/pdp_site.png" alt="photo de profil">
                 <div>
-                    <h2>A PROPOS DE MOI</h2>
+                    <h5>Etudiant en MMI</h5>
                     <h3>Maxime Raquin</h3>
-                    <h5>Etudiant en BUT MMI</h5>
                     <p>J'ai toujours été
                         passionné de montage vidéo si bien qu'en 2018,
                         je créé ma chaîne Youtube Eudet la frappe,
@@ -45,7 +52,10 @@
                         de ma passion pour le montage vidéo et la création
                         audiovisuelle.
                     </p>
-                    <a href="./assets/img/cv.pdf" download class="cv">Télécharger mon CV</a>
+                    <div class="links">
+                        <a href="#projets" class="btn-projets">Voir mes projets</a>
+                        <a href="./assets/img/cv.pdf" download class="cv">Télécharger mon CV</a>
+                    </div>
                 </div>
         </section>
 
@@ -53,43 +63,50 @@
         <!-- section parcours -->
 
         <section id="parcours">
-            <h2>PARCOURS</h2>
+            <h2>Parcours</h2>
             <div>
-                <ul>
-                    <li>
-                        <h3>2022</h3> <br> Brevet des collèges <br> <img src="./assets/img/point_date.png" alt="">
+                <ol class="timeline">
+                    <li class="etape">
+                      <p class="annee">2024</p>
+                      <h3 class="titre">Cambridge IGCSE</h2>
                     </li>
-                    <li>
-                        <h3>2024</h3> <br> Cambridge IGCSE <br> <img src="./assets/img/point_date.png" alt="">
+                   
+                    <li class="etape">
+                      <p class="annee">2025</p>
+                      <h3 class="titre">Baccalauréat</h2>
                     </li>
-                    <li>
-                        <h3>2025</h3> <br> Baccalauréat Général HGGSP-NSI <br> <img src="./assets/img/point_date.png" alt="">
+                   
+                    <li class="etape actuelle">
+                      <p class="annee">2026</p>
+                      <h3 class="titre">BUT MMI – 2<sup>e</sup> année</h2>
+                      <p class="statut">En cours…</p>
                     </li>
-                    <li>
-                        <h3>2026</h3> <br> 2ème année BUT MMI <br> <img src="./assets/img/point_date.png" alt="">
-                    </li>
-                </ul>
+                  </ol>
             </div>
         </section>
 
         <section id="competences">
-            <div class="left-competences">
-                <h2>COMPETENCES</h2>
+            <h2>Compétences</h2>
+            <div class="competences">
                 <ul>
                     <li>Design graphique</li>
                     <li>Montage vidéo</li>
                     <li>Développement web</li>
+                    <li>Production audiovisuelle</li>
                 </ul>
             </div>
-            <div class="right-competences">
-                <h2>LOGICIELS</h2>
+            <div class="logiciels">
+                <h3>Logiciels et langages</h3>
                 <ul>
-                    <li>Davinci Resolve</li>
-                    <li>Premiere Pro</li>
-                    <li>Photoshop</li>
-                    <li>Illustrator</li>
-                    <li>VS Code</li>
-                    <li>Figma</li>
+                    <li><img src="./assets/img/logiciels/DaVinci_Resolve_Studio.png" alt="">Davinci Resolve</li>
+                    <li><img src="./assets/img/logiciels/Premiere_Pro.webp" alt="">Premiere Pro</li>
+                    <li><img src="./assets/img/logiciels/Photoshop.png" alt="">Photoshop</li>
+                    <li><img src="./assets/img/logiciels/Illustrator.webp" alt="">Illustrator</li>
+                    <li><img src="./assets/img/logiciels/VS_code.png" alt="">VS Code</li>
+                    <li><img src="./assets/img/logiciels/Html.webp" alt="">HTML</li>
+                    <li><img src="./assets/img/logiciels/CSS.webp" alt="">CSS</li>
+                    <li><img src="./assets/img/logiciels/js.png" alt="">JS</li>
+                    <li><img src="./assets/img/logiciels/php.webp" alt="">PHP</li>
                 </ul>
             </div>
         </section>
@@ -98,34 +115,15 @@
         <!-- section projets -->
 
         <section id="projets">
-            <h2>PROJETS</h2>
-            <div>
-                <ul>
-                    <li data-accName="Item 1">
-                        <h2>Chaîne Youtube</h2>
-                    </li>
-                    <li data-accName="Item 2">
-                        <h2>Page 2</h2>
-                    </li>
-                    <li data-accName="Item 3">
-                        <h2>Page 3</h2>
-                    </li>
-                    <li data-accName="Item 4">
-                        <h2>Page 4</h2>
-                    </li>
-                </ul>
-            </div>
-            <div class="realisations">
-                <div>
-                    <div class="ytb">
-                        <img src="" alt="">
-                        
-                    </div>
+            <h2>Projets</h2>
+            <article class="carte">
+                <div class="miniature"></div>
+                <div class="description">
+                    <h3>Ma chaîne Youtube</h3>
+                    <p>Ecriture, scénarisation, montage et publication de mes propres vidéos</p>
+                    <a href="">Voir la chaine</a>
                 </div>
-                <div>
-
-                </div>
-            </div>
+            </article>
         </section>
 
 
@@ -133,11 +131,15 @@
 
         <section id="contact">
             <div class="profil">
-                <img src="./assets/img/pdp-wbg-r.png" alt="">
-                <h3>Maxime Raquin</h3>
+                <img src="./assets/img/pdp_site.png" alt="">
+                <div>
+                    <h3>Maxime Raquin</h3>
+                    <p>Liens utiles</p>
+                    <button><img src="" alt=""><a href="">Instagram</a></button>
+                </div>
             </div>
             <div class="formulaire">
-                <h2>CONTACT</h2>
+                <h2>Contact</h2>
                 <form action="/ma-page-de-traitement" method="post">
                     <ul>
                       <li>
@@ -165,7 +167,27 @@
 
     </main>
     <footer>
-
+        <div class="footer">
+            <div class="navigation">
+                <h5>Navigation</h5>
+                <ul>
+                    <li>A propos</li>
+                    <li>Parcours</li>
+                    <li>Compétences</li>
+                    <li>Projets</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="me_contacter">
+                <h5>Me contacter</h5>
+                <ul>
+                    <li>maximeraquin08@gmail.com</li>
+                    <li>24 rue Alphonse Aulard, 16000 Angoulême</li>
+                    <li>06 51 89 68 47</li>
+                </ul>
+            </div>
+        </div>
+        <p>© 2026 Maxime - Portfolio MMI</p>
     </footer>
 </body>
 </html>
