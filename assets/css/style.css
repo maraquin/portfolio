@@ -261,6 +261,80 @@ nav img {
     color: #7a5c00;
 }
 
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 30px;
+    position: relative;
+  }
+  
+  /* La ligne verticale */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    width: 4px;
+    background: #d0d0d0;
+    border-radius: 2px;
+  }
+  
+  .etape {
+    position: relative;
+    padding-bottom: 32px;
+  }
+  
+  .etape:last-child {
+    padding-bottom: 0;
+  }
+  
+  /* Le point sur la ligne */
+  .etape::before {
+    content: "";
+    position: absolute;
+    left: -38px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 3px solid #888;
+    border-radius: 50%;
+  }
+  
+  .annee {
+    margin: 0 0 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #888;
+  }
+  
+  .titre {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  
+  .statut {
+    display: inline-block;
+    margin: 8px 0 0;
+    padding: 3px 10px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    background: #ffc800;
+    color: #ffc800;
+    font-weight: bold;
+  }
+  
+  /* Étape actuelle */
+  .etape.actuelle::before {
+    background: #ffc800;
+    border-color: #ffc800;
+    box-shadow: 0 0 0 5px rgba(255, 196, 0, 0.2);
+  }
+  
+  .etape.actuelle .annee {
+    color: #ffc800;
+  }
 
 
 
