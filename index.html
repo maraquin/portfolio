@@ -27,10 +27,12 @@
             </div>
         </nav>
     </header>
-    <main class="presentation">
+    <!--
+        <main class="presentation">
         <img src="./assets/img/memoji.png" alt="memoji">
         <h1>Maxime Raquin</h1>
-    </main>
+        </main>
+    -->
 
     <main class="contenu">
 
@@ -64,50 +66,57 @@
 
         <section id="parcours">
             <h2>Parcours</h2>
-            <div>
-                <ol class="timeline">
-                    <li class="etape">
-                      <p class="annee">2024</p>
-                      <h3 class="titre">Cambridge IGCSE</h2>
-                    </li>
-                   
-                    <li class="etape">
-                      <p class="annee">2025</p>
-                      <h3 class="titre">Baccalauréat</h2>
-                    </li>
-                   
-                    <li class="etape actuelle">
-                      <p class="annee">2026</p>
-                      <h3 class="titre">BUT MMI – 2<sup>e</sup> année</h2>
-                      <p class="statut">En cours…</p>
-                    </li>
-                  </ol>
+
+            <div class="etape">
+                <h4>2024</h4>
+                <div>
+                    <h3>Cambridge IGCSE</h3>
+                    <p>En première, j'ai passé un examen d'anglais de littérature et d'histoire qui m'a permis d'améliorer grandement mon niveau d'anglais jusqu'au B2.</p>
+                </div>
+            </div>
+            <div class="etape">
+                <h4>2025</h4>
+                <div>
+                    <h3>Baccalauréat</h3>
+                    <p>J'ai eu mon bac avec mention Bien en spécialité HGGSP-NSI au lycée Fénelon Notre-Dame à La Rochelle.</p>
+                </div>
+            </div>
+            <div class="etape">
+                <h4>2026</h4>
+                <div>
+                    <h3>BUT MMI</h3>
+                    <p>Je suis actuellement en 2ème année de BUT MMI à l'IUT Angoulême où je réalise des prrojets audiovisuel et créatifs.</p>
+                    <h5 class="en_cours">en cours...</h5>
+                </div>
             </div>
         </section>
 
         <section id="competences">
             <h2>Compétences</h2>
-            <div class="competences">
-                <ul>
-                    <li>Design graphique</li>
-                    <li>Montage vidéo</li>
-                    <li>Développement web</li>
-                    <li>Production audiovisuelle</li>
-                </ul>
-            </div>
-            <div class="logiciels">
-                <h3>Logiciels et langages</h3>
-                <ul>
-                    <li><img src="./assets/img/logiciels/DaVinci_Resolve_Studio.png" alt="">Davinci Resolve</li>
-                    <li><img src="./assets/img/logiciels/Premiere_Pro.webp" alt="">Premiere Pro</li>
-                    <li><img src="./assets/img/logiciels/Photoshop.png" alt="">Photoshop</li>
-                    <li><img src="./assets/img/logiciels/Illustrator.webp" alt="">Illustrator</li>
-                    <li><img src="./assets/img/logiciels/VS_code.png" alt="">VS Code</li>
-                    <li><img src="./assets/img/logiciels/Html.webp" alt="">HTML</li>
-                    <li><img src="./assets/img/logiciels/CSS.webp" alt="">CSS</li>
-                    <li><img src="./assets/img/logiciels/js.png" alt="">JS</li>
-                    <li><img src="./assets/img/logiciels/php.webp" alt="">PHP</li>
-                </ul>
+            <div>
+                <div class="competences">
+                    <h3>Compétences</h3>
+                    <ul>
+                        <li>Design graphique</li>
+                        <li>Montage vidéo</li>
+                        <li>Développement web</li>
+                        <li>Production audiovisuelle</li>
+                    </ul>
+                </div>
+                <div class="logiciels">
+                    <h3>Logiciels et langages</h3>
+                    <ul>
+                        <li><img src="./assets/img/logiciels/DaVinci_Resolve_Studio.png" alt="">Davinci Resolve</li>
+                        <li><img src="./assets/img/logiciels/Premiere_Pro.webp" alt="">Premiere Pro</li>
+                        <li><img src="./assets/img/logiciels/Photoshop.png" alt="">Photoshop</li>
+                        <li><img src="./assets/img/logiciels/Illustrator.webp" alt="">Illustrator</li>
+                        <li><img src="./assets/img/logiciels/VS_code.png" alt="">VS Code</li>
+                        <li><img src="./assets/img/logiciels/Html.webp" alt="">HTML</li>
+                        <li><img src="./assets/img/logiciels/CSS.webp" alt="">CSS</li>
+                        <li><img src="./assets/img/logiciels/js.png" alt="">JS</li>
+                        <li><img src="./assets/img/logiciels/php.webp" alt="">PHP</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -116,14 +125,41 @@
 
         <section id="projets">
             <h2>Projets</h2>
-            <article class="carte">
-                <div class="miniature"></div>
-                <div class="description">
-                    <h3>Ma chaîne Youtube</h3>
-                    <p>Ecriture, scénarisation, montage et publication de mes propres vidéos</p>
-                    <a href="">Voir la chaine</a>
-                </div>
-            </article>
+            <div class="cartes">
+                <a href="projet.html" class="carte">
+                    <img src="./assets/img/projets/chaine_ytb.png" alt="Aperçu du projet">
+                    <div class="carte-contenu">
+                      <h3>Chaîne Youtube</h3>
+                      <p>J'ai tenu une chaîne Youtube entre 2020 et 2025</p>
+                      <h5 class="suite">Lire la suite →</h5>
+                    </div>
+                </a>
+                <a href="projet.html" class="carte">
+                    <img src="./assets/img/projets/Logo BDE.png" alt="Aperçu du projet">
+                    <div class="carte-contenu">
+                      <h3>Logo du BDE</h3>
+                      <p>J'ai réalisé le logo du BDE MMI Angoulême</p>
+                      <h5 class="suite">Lire la suite →</h5>
+                    </div>
+                </a>
+                <a href="projet.html" class="carte">
+                    <img src="./assets/img/projets/TP4-RAQUIN-Maxime-Affiche.jpg" alt="Aperçu du projet">
+                    <div class="carte-contenu">
+                      <h3>Affiche et flyer</h3>
+                      <p>Pour un travail scolaire, j'ai réalisé une affiche sur le changement climatique</p>
+                      <h5 class="suite">Lire la suite →</h5>
+                    </div>
+                </a>
+                <a href="projet.html" class="carte">
+                    <img src="./assets/img/projets/padel/Raquinmaxime-logoPADEL16.png" alt="Aperçu du projet">
+                    <div class="carte-contenu">
+                      <h3>Affiche et flyer</h3>
+                      <p>Pour un travail scolaire, j'ai réalisé une affiche sur le changement climatique</p>
+                      <h5 class="suite">Lire la suite →</h5>
+                    </div>
+                </a>
+            </div>
+
         </section>
 
 
@@ -131,11 +167,15 @@
 
         <section id="contact">
             <div class="profil">
-                <img src="./assets/img/pdp_site.png" alt="">
+                <img class="pdp" src="./assets/img/pdp_site.png" alt="">
                 <div>
                     <h3>Maxime Raquin</h3>
                     <p>Liens utiles</p>
-                    <button><img src="" alt=""><a href="">Instagram</a></button>
+                    <div class="liens_profil">
+                        <button><img src="./assets/img/Instagram_icon.png" alt=""><a href="">Instagram</a></button>
+                        <button><img src="./assets/img/youtube.webp" alt=""><a href="">Youtube</a></button>
+                        <button><img src="./assets/img/linkedin.webp" alt=""><a href="">Linkedin</a></button>
+                    </div>
                 </div>
             </div>
             <div class="formulaire">

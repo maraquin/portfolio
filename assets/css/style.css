@@ -71,6 +71,11 @@ body {
     width: 100%;
 }
 
+section {
+    height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 
 .contenu h2 {
@@ -91,7 +96,8 @@ body {
 }
 
 .contenu li, .contenu p {
-    font-family: 'Nexa-Light';
+    font-family: 'Nexa';
+    font-weight: bold;
 }
 
 
@@ -104,6 +110,7 @@ header {
     z-index: 1000;
     border-bottom: solid rgb(214, 214, 214) 1px;
     background-color: #fbfaf5;
+    border-radius: 20px;
 }
 
 nav {
@@ -253,88 +260,43 @@ nav img {
 
 /* section parcours */
 
-#parcours li {
-    list-style: none;
+.etape {
+    border-radius: 30px;
+    display: flex;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    height: 20vh;
+    padding: 1vh 4vh;
+    margin-top: 5vh;
+    border: solid 7px #ffc800;
 }
 
-#parcours p {
+.etape h4 {
+    background-color: #ffc800;
+    color: white;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 0 1vh;
+}
+
+.etape div h3 {
     color: #7a5c00;
 }
 
-.timeline {
-    list-style: none;
-    margin: 0;
-    padding: 0 0 0 30px;
-    position: relative;
-  }
-  
-  /* La ligne verticale */
-  .timeline::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0px;
-    width: 4px;
-    background: #d0d0d0;
-    border-radius: 2px;
-  }
-  
-  .etape {
-    position: relative;
-    padding-bottom: 32px;
-  }
-  
-  .etape:last-child {
-    padding-bottom: 0;
-  }
-  
-  /* Le point sur la ligne */
-  .etape::before {
-    content: "";
-    position: absolute;
-    left: -38px;
-    top: 4px;
-    width: 14px;
-    height: 14px;
-    background: #fff;
-    border: 3px solid #888;
-    border-radius: 50%;
-  }
-  
-  .annee {
-    margin: 0 0 4px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #888;
-  }
-  
-  .titre {
-    margin: 0;
-    font-size: 1.2rem;
-  }
-  
-  .statut {
-    display: inline-block;
-    margin: 8px 0 0;
-    padding: 3px 10px;
-    font-size: 0.8rem;
-    border-radius: 20px;
-    background: #ffc800;
+.etape div p {
+    color: #3d2e00;
+}
+
+.etape div {
+    margin-left: 3vw;
+}
+
+.en_cours {
     color: #ffc800;
-    font-weight: bold;
-  }
-  
-  /* Étape actuelle */
-  .etape.actuelle::before {
-    background: #ffc800;
-    border-color: #ffc800;
-    box-shadow: 0 0 0 5px rgba(255, 196, 0, 0.2);
-  }
-  
-  .etape.actuelle .annee {
-    color: #ffc800;
-  }
+    font-weight: 900;
+    margin: 0;
+    font-size: 15px;
+}
 
 
 
@@ -347,57 +309,60 @@ nav img {
     background-color: #f2efe3;
 }
 
+#competences h3 {
+    color: #7a5c00;
+}
+
+#competences div {
+    display: flex;
+    justify-content: space-around;
+}
+
+#competences .competences,.logiciels{
+    border: solid 7px #ffc800;
+    border-radius: 30px;
+    width: 40vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
 .competences {
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 10vh;
 }
 
-
 .competences li {
     list-style: none;
-    border: solid #ffc800;
-    color: #ffc800;
+    border: solid 3px #ffc800;
     border-radius: 30px;
-    width: fit-content;
-    font-family: 'Cocogoose';
-    padding: 2vh 2vh;
-}
-
-.competences li:hover {
-    background-color: #ffc800;
-    color: white;
+    padding: 1vh;
 }
 
 .competences ul {
     display: flex;
-    flex-direction: row;
     justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 0;
+    width: 35vw;
+    height: 10vh;
 }
 
-
-
-.logiciels li {
+.logiciels li{
     list-style: none;
-    margin: 0 2vh;
-    border-radius: 30px;
+    padding-left: 0;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    border: solid 3px #ffc800;
-    padding: 1vh 2vh;
-    gap: 1vh;
-    color: #ffc800;
-    font-weight: 900;
+}
+
+.logiciels ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .logiciels img {
     height: 3vh;
-}
-
-.logiciels ul {
-    display: flex;
-    flex-direction: row;
 }
 
 
