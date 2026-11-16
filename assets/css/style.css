@@ -1251,3 +1251,207 @@ footer {
 footer {
     padding-bottom: 2vh;
 }
+
+
+
+/* page projet */
+
+/* ============================================
+   Pages projet
+   À charger APRÈS style.css :
+   <link rel="stylesheet" href="./assets/css/projet.css">
+   ============================================ */
+
+   .page-projet {
+    display: flex;
+    flex-direction: column;
+    gap: 7vh;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 5vh 1.5vw 10vh;
+}
+
+/* --- bouton retour --- */
+.btn-retour {
+    align-self: flex-start;
+    display: inline-block;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 3px #ffc800;
+    border-radius: 50px;
+    padding: 1vh 2.5vh;
+    font-family: 'Nexa';
+    font-weight: bold;
+    font-size: 2vh;
+    text-decoration: none;
+    box-shadow: #7a5c00 3px 3px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.btn-retour:hover {
+    background-color: #ffffff;
+    transform: translate(-2px, -2px);
+    box-shadow: #7a5c00 5px 5px;
+}
+
+/* --- en-tête : tag + titre --- */
+.projet-entete {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2vh;
+}
+
+.projet-entete .tag {
+    position: static;
+    background-color: #ffc800;
+    color: #080808;
+    border: none;
+    font-size: 2vh;
+    padding: 0.6vh 2vh;
+    border-radius: 50px;
+    box-shadow: #7a5c00 3px 3px;
+}
+
+.projet-entete h1 {
+    margin: 0;
+    font-family: 'Cocogoose';
+    font-size: 7vh;
+    line-height: 1.2;
+    color: #080808;
+}
+
+.projet-entete h1 span {
+    box-shadow: inset 0 -.25em 0 #ffc800;
+}
+
+/* --- grille : photo à gauche, contexte + objectif à droite, développement en dessous --- */
+.projet-grille {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 4.5vh 1.5vw;
+}
+
+/* --- photo : occupe la hauteur des deux blocs de droite --- */
+.projet-visuel {
+    position: relative;
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    min-height: 30vh;
+    border: solid 7px #ffc800;
+    border-radius: 30px;
+    background-color: #f2efe3;
+    box-shadow: #7a5c00 5px 5px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projet-visuel:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: #7a5c00 8px 8px;
+}
+
+/* l'image remplit le cadre sans influencer la hauteur de la ligne */
+.projet-visuel img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- blocs de texte --- */
+.projet-bloc {
+    position: relative;
+    background-color: #fbfaf5;
+    border: solid 7px #ffc800;
+    border-radius: 30px;
+    box-shadow: #7a5c00 5px 5px;
+    padding: 5vh 1.5vw 3vh;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projet-bloc:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: #7a5c00 8px 8px;
+}
+
+.bloc-contexte {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.bloc-objectif {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+/* le développement prend toute la largeur (photo + blocs) */
+.bloc-developpement {
+    grid-column: 1 / -1;
+    grid-row: 3;
+}
+
+/* titre en "sticker" qui dépasse de la carte */
+.projet-bloc h3 {
+    position: absolute;
+    top: -2.8vh;
+    left: 1.5vw;
+    margin: 0;
+    background-color: #ffc800;
+    color: #17160f;
+    font-family: 'Cocogoose';
+    font-size: 2.2vh;
+    padding: 0.8vh 2.5vh;
+    border-radius: 50px;
+    box-shadow: #7a5c00 3px 3px;
+}
+
+.projet-bloc p {
+    margin: 0;
+    color: #3d2e00;
+    font-family: 'Nexa';
+    font-weight: bold;
+    font-size: 1.8vh;
+    line-height: 1.5;
+}
+
+/* --- bas de page --- */
+.projet-bas {
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 900px) {
+    .page-projet {
+        gap: 5vh;
+    }
+    .projet-entete h1 {
+        font-size: 5vh;
+    }
+    .page-projet {
+        padding: 4vh 3vw 8vh;
+    }
+    .projet-grille {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        gap: 5vh;
+    }
+    .projet-visuel,
+    .bloc-contexte,
+    .bloc-objectif,
+    .bloc-developpement {
+        grid-column: 1;
+        grid-row: auto;
+    }
+    .projet-visuel {
+        height: 40vh;
+    }
+    .projet-bloc {
+        padding: 5vh 4vw 3vh;
+    }
+    .projet-bloc h3 {
+        left: 4vw;
+    }
+}
