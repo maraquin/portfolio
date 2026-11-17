@@ -1,3 +1,173 @@
+/* --- transition fluide entre les thèmes ---
+   Les variables de couleur sont déclarées comme de vraies couleurs
+   (@property), ce qui permet de les animer. La classe .theme-fluide
+   est posée par script.js pendant la bascule seulement. */
+
+   @property --fond {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #fbfaf5;
+}
+@property --fond2 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #f2efe3;
+}
+@property --carte2 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #ffffff;
+}
+@property --titre {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #080808;
+}
+@property --texte {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #17160f;
+}
+@property --texte2 {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #3d2e00;
+}
+@property --brun {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #7a5c00;
+}
+@property --hover {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #fff3c2;
+}
+@property --surligne {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #ffc800;
+}
+@property --pois {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgba(255, 200, 0, 0.35);
+}
+@property --bande {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgba(242, 239, 227, 0.6);
+}
+@property --footer {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: rgba(251, 250, 245, 0.92);
+}
+@property --placeholder {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #6f6648;
+}
+@property --discret {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #595959;
+}
+@property --accent-doux {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #8a6600;
+}
+@property --bord-champ {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #7a5c00;
+}
+@property --focus {
+    syntax: '<color>';
+    inherits: true;
+    initial-value: #17160f;
+}
+
+/* la transition elle-même, active seulement pendant la bascule */
+:root.theme-fluide {
+    transition:
+        --fond 0.6s ease,
+        --fond2 0.6s ease,
+        --carte2 0.6s ease,
+        --titre 0.6s ease,
+        --texte 0.6s ease,
+        --texte2 0.6s ease,
+        --brun 0.6s ease,
+        --hover 0.6s ease,
+        --surligne 0.6s ease,
+        --pois 0.6s ease,
+        --bande 0.6s ease,
+        --footer 0.6s ease,
+        --placeholder 0.6s ease,
+        --discret 0.6s ease,
+        --accent-doux 0.6s ease,
+        --bord-champ 0.6s ease,
+        --focus 0.6s ease;
+}
+
+/* pendant la bascule, seules les variables s'animent (pas de décalage) */
+:root.theme-fluide *,
+:root.theme-fluide *::before,
+:root.theme-fluide *::after {
+    transition: none !important;
+}
+
+/* navigateurs sans @property : fondu classique élément par élément */
+:root.theme-fluide-secours *,
+:root.theme-fluide-secours *::before,
+:root.theme-fluide-secours *::after {
+    transition: background-color 0.6s ease, color 0.6s ease,
+                border-color 0.6s ease, box-shadow 0.6s ease !important;
+}
+
+
+
+/* ==========================================================
+   THÈMES — clair (par défaut) et sombre
+   Le thème est piloté par l'attribut data-theme sur <html>.
+   Le bouton de bascule est créé par script.js.
+   ========================================================== */
+
+   :root {
+    color-scheme: light;
+    --fond: #fbfaf5;
+    --fond2: #f2efe3;
+    --carte2: #ffffff;
+    --titre: #080808;
+    --texte: #17160f;
+    --texte2: #3d2e00;
+    --brun: #7a5c00;
+    --hover: #fff3c2;
+    --surligne: #ffc800;
+    --pois: rgba(255, 200, 0, 0.35);
+    --bande: rgba(242, 239, 227, 0.6);
+    --footer: rgba(251, 250, 245, 0.92);
+    --placeholder: #b3a77a;
+}
+
+[data-theme="dark"] {
+    color-scheme: dark;
+    --fond: #14130e;
+    --fond2: #1c1a12;
+    --carte2: #26231a;
+    --titre: #f7f3e3;
+    --texte: #ece6cf;
+    --texte2: #d9d1b3;
+    --brun: #ffc800;
+    --hover: #3a3212;
+    --surligne: #9a7500;
+    --pois: rgba(255, 200, 0, 0.10);
+    --bande: rgba(28, 26, 18, 0.7);
+    --footer: rgba(20, 19, 14, 0.94);
+    --placeholder: #7d7455;
+}
+
 @font-face {
     font-family: 'Spell of Asia';
     src: url("/assets/fonts/Spell-of-Asia.ttf") format('truetype');
@@ -30,7 +200,7 @@ html {
 }
 
 body {
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     background-size: 100vh;
     font-family: 'Nexa';
     font-weight: 100;
@@ -53,8 +223,8 @@ section {
     margin: 0px;
     font-family: 'Cocogoose';
     font-size: 4vh;
-    color: #080808;
-    box-shadow: inset 0 -.30em 0 #ffc800;
+    color: var(--titre);
+    box-shadow: inset 0 -.30em 0 var(--surligne);
     width: fit-content;
     margin-bottom: 5vh;
 }
@@ -83,7 +253,7 @@ header {
     width: fit-content;
     max-width: 96vw;
     margin: 2vh auto 0;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 50px;
     box-shadow: #7a5c00 5px 5px;
@@ -152,14 +322,14 @@ nav ul a {
     font-family: 'Nexa';
     font-weight: bold;
     font-size: 1.8vh;
-    color: #17160f;
+    color: var(--texte);
     text-decoration: none;
     white-space: nowrap;
     transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
 }
 
 nav ul a:hover {
-    background-color: #fff3c2;
+    background-color: var(--hover);
     border-color: #ffc800;
     transform: translateY(-2px);
 }
@@ -233,7 +403,7 @@ section {
     flex-shrink: 0;
     border: solid 7px #ffc800;
     border-radius: 30px;
-    background-color: #f2efe3;
+    background-color: var(--fond2);
     box-shadow: #7a5c00 5px 5px;
 }
 
@@ -295,18 +465,18 @@ section {
     font-family: 'Cocogoose';
     font-size: 7vh;
     line-height: 1.1;
-    color: #080808;
+    color: var(--titre);
 }
 
 #apropos h3 span {
-    box-shadow: inset 0 -.25em 0 #ffc800;
+    box-shadow: inset 0 -.25em 0 var(--surligne);
 }
 
 .apropos-carte {
     display: flex;
     flex-direction: column;
     gap: 1.5vh;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 30px;
     box-shadow: #7a5c00 5px 5px;
@@ -321,7 +491,7 @@ section {
 
 #apropos .apropos-carte p {
     margin: 0;
-    color: #3d2e00;
+    color: var(--texte2);
     font-size: 1.9vh;
     line-height: 1.6;
 }
@@ -337,7 +507,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.5vh;
-    background-color: #ffffff;
+    background-color: var(--carte2);
     border: solid 3px #ffc800;
     border-radius: 20px;
     padding: 1.8vh 1vw;
@@ -346,7 +516,7 @@ section {
 }
 
 .chiffres div:hover {
-    background-color: #fff3c2;
+    background-color: var(--hover);
     transform: translateY(-4px);
     box-shadow: #7a5c00 3px 3px;
 }
@@ -354,12 +524,12 @@ section {
 .chiffres strong {
     font-family: 'Cocogoose';
     font-size: 2.4vh;
-    color: #7a5c00;
+    color: var(--brun);
 }
 
 .chiffres small {
     font-size: 1.5vh;
-    color: #3d2e00;
+    color: var(--texte2);
 }
 
 /* --- boutons --- */
@@ -384,7 +554,7 @@ section {
 
 .cv {
     text-decoration: none;
-    color: black;
+    color: var(--titre);
     border: solid #ffc800 3px;
     border-radius: 50px;
     padding: 1vh 2.5vh;
@@ -400,6 +570,7 @@ section {
 
 .cv:hover {
     background-color: #ffc800;
+    color: #17160f;
 }
 
 @media (max-width: 900px) {
@@ -446,7 +617,7 @@ section {
     padding: 5vh 2.5vw 3.5vh;
     border: solid 7px #ffc800;
     border-radius: 30px;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     box-shadow: #7a5c00 5px 5px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -476,8 +647,8 @@ section {
     width: fit-content;
     margin: 0;
     font-size: 1.5vh;
-    color: #7a5c00;
-    border: solid 3px #7a5c00;
+    color: var(--brun);
+    border: solid 3px var(--brun);
     border-radius: 20px;
     padding: 0 1vh;
 }
@@ -486,7 +657,7 @@ section {
     margin: 0.5vh 0 0;
     font-family: 'Cocogoose';
     font-size: 2.8vh;
-    color: #3d2e00;
+    color: var(--texte2);
 }
 
 .etape h5 {
@@ -497,7 +668,7 @@ section {
 
 .etape p {
     margin: 1vh 0 0;
-    color: #3d2e00;
+    color: var(--texte2);
     font-size: 1.8vh;
     line-height: 1.5;
 }
@@ -543,7 +714,7 @@ section {
 /* compétences */
 
 #competences {
-    background-color: #f2efe3;
+    background-color: var(--fond2);
     background-size: 28px 28px;
     height: auto;
     min-height: 100vh;
@@ -560,7 +731,7 @@ section {
 .competences, .logiciels {
     position: relative;
     border: solid 7px #ffc800;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     box-shadow: #7a5c00 5px 5px;
     border-radius: 30px;
     padding: 6vh 2vw 4vh;
@@ -609,7 +780,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    background-color: #ffffff;
+    background-color: var(--carte2);
     border: solid 3px #ffc800;
     border-radius: 20px;
     padding: 2.5vh 1.5vw;
@@ -637,12 +808,12 @@ section {
 .competences strong {
     font-family: 'Cocogoose';
     font-size: 2.2vh;
-    color: #7a5c00;
+    color: var(--brun);
 }
 
 .competences small {
     font-size: 1.6vh;
-    color: #3d2e00;
+    color: var(--texte2);
     font-weight: lighter;
     line-height: 1.4;
 }
@@ -653,8 +824,8 @@ section {
     width: fit-content;
     margin: 0 0 1.5vh;
     font-size: 1.5vh;
-    color: #7a5c00;
-    border: solid 3px #7a5c00;
+    color: var(--brun);
+    border: solid 3px var(--brun);
     border-radius: 20px;
     padding: 0 1vh;
 }
@@ -671,13 +842,13 @@ section {
     align-items: center;
     justify-content: center;
     gap: 1vh;
-    background-color: #ffffff;
+    background-color: var(--carte2);
     border: solid 3px #ffc800;
     border-radius: 20px;
     padding: 1.8vh 1vh;
     font-size: 1.6vh;
     text-align: center;
-    color: #17160f;
+    color: var(--texte);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -741,7 +912,7 @@ section {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 30px;
     box-shadow: #7a5c00 5px 5px;
@@ -760,7 +931,7 @@ section {
     position: relative;
     overflow: hidden;
     border-bottom: solid 4px #ffc800;
-    background-color: #f2efe3;
+    background-color: var(--fond2);
 }
 
 .carte-image img {
@@ -780,9 +951,9 @@ section {
     position: absolute;
     bottom: 1.5vh;
     right: 1.5vh;
-    background-color: #fbfaf5;
-    color: #7a5c00;
-    border: solid 3px #7a5c00;
+    background-color: var(--fond);
+    color: var(--brun);
+    border: solid 3px var(--brun);
     font-family: 'Nexa';
     font-weight: bold;
     font-size: 1.4vh;
@@ -803,7 +974,7 @@ section {
     margin: 0;
     font-family: 'Cocogoose';
     font-size: 2.2vh;
-    color: #7a5c00;
+    color: var(--brun);
 }
 
 .carte-vedette h3 {
@@ -812,7 +983,7 @@ section {
 
 .carte p {
     margin: 0;
-    color: #3d2e00;
+    color: var(--texte2);
     font-size: 1.7vh;
     line-height: 1.5;
 }
@@ -830,13 +1001,14 @@ section {
     font-family: 'Nexa';
     font-weight: bold;
     font-size: 1.6vh;
-    color: #17160f;
+    color: var(--texte);
     background-color: transparent;
     transition: background-color 0.3s ease;
 }
 
 .carte:hover .suite {
     background-color: #ffc800;
+    color: #17160f;
 }
 
 @media (max-width: 1100px) {
@@ -881,7 +1053,7 @@ section {
     gap: 5vw;
     height: auto;
     min-height: 100vh;
-    background-color: #f2efe3;
+    background-color: var(--fond2);
 }
 
 /* texte caché mais lisible par les lecteurs d'écran */
@@ -902,7 +1074,7 @@ section {
     align-items: center;
     width: 28vw;
     text-align: center;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 30px;
     box-shadow: #7a5c00 5px 5px;
@@ -944,7 +1116,7 @@ section {
     margin: 0;
     font-family: 'Cocogoose';
     font-size: 3.5vh;
-    color: #7a5c00;
+    color: var(--brun);
 }
 
 #contact .profil p {
@@ -965,14 +1137,14 @@ section {
     align-items: center;
     justify-content: center;
     gap: 1.5vh;
-    background-color: #ffffff;
+    background-color: var(--carte2);
     border: solid 3px #ffc800;
     border-radius: 50px;
     padding: 1vh 2.5vh;
     font-family: 'Nexa';
     font-weight: bold;
     font-size: 2vh;
-    color: #17160f;
+    color: var(--texte);
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -981,6 +1153,7 @@ section {
     background-color: #ffc800;
     transform: translateY(-4px);
     box-shadow: #7a5c00 3px 3px;
+    color: #17160f;
 }
 
 #contact .liens_profil img {
@@ -993,7 +1166,7 @@ section {
 #contact .formulaire {
     position: relative;
     width: 40vw;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 30px;
     box-shadow: #7a5c00 5px 5px;
@@ -1033,12 +1206,12 @@ section {
     height: 7vh;
     margin: 0;
     padding: 0 1.5vw;
-    background-color: #ffffff;
+    background-color: var(--carte2);
     border: solid 3px #ffc800;
     border-radius: 20px;
     font-family: 'Nexa';
     font-size: 2vh;
-    color: #3d2e00;
+    color: var(--texte2);
     transition: background-color 0.3s ease, box-shadow 0.2s ease;
 }
 
@@ -1050,13 +1223,13 @@ section {
 
 #contact input::placeholder,
 #contact textarea::placeholder {
-    color: #b3a77a;
+    color: var(--placeholder);
 }
 
 #contact input:focus,
 #contact textarea:focus {
     outline: none;
-    background-color: #fff3c2;
+    background-color: var(--hover);
     box-shadow: #7a5c00 3px 3px;
 }
 
@@ -1115,7 +1288,7 @@ section {
 
 footer {
     border-top: solid #ffc800;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
 }
 
 footer p {
@@ -1156,18 +1329,18 @@ footer p, a {
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    background-image: radial-gradient(rgba(255, 200, 0, 0.35) 2px, transparent 2px);
+    background-image: radial-gradient(var(--pois) 2px, transparent 2px);
     background-size: 32px 32px;
 }
 
 /* les sections laissent voir le fond */
 #competences,
 #contact {
-    background-color: rgba(242, 239, 227, 0.6);
+    background-color: var(--bande);
 }
 
 footer {
-    background-color: rgba(251, 250, 245, 0.92);
+    background-color: var(--footer);
 }
 
 
@@ -1318,11 +1491,11 @@ footer {
     font-family: 'Cocogoose';
     font-size: 7vh;
     line-height: 1.2;
-    color: #080808;
+    color: var(--titre);
 }
 
 .projet-entete h1 span {
-    box-shadow: inset 0 -.25em 0 #ffc800;
+    box-shadow: inset 0 -.25em 0 var(--surligne);
 }
 
 /* --- grille : photo à gauche, contexte + objectif à droite, développement en dessous --- */
@@ -1341,7 +1514,7 @@ footer {
     min-height: 30vh;
     border: solid 7px #ffc800;
     border-radius: 30px;
-    background-color: #f2efe3;
+    background-color: var(--fond2);
     box-shadow: #7a5c00 5px 5px;
     overflow: hidden;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -1364,7 +1537,7 @@ footer {
 /* --- blocs de texte --- */
 .projet-bloc {
     position: relative;
-    background-color: #fbfaf5;
+    background-color: var(--fond);
     border: solid 7px #ffc800;
     border-radius: 30px;
     box-shadow: #7a5c00 5px 5px;
@@ -1410,7 +1583,7 @@ footer {
 
 .projet-bloc p {
     margin: 0;
-    color: #3d2e00;
+    color: var(--texte2);
     font-family: 'Nexa';
     font-weight: bold;
     font-size: 1.8vh;
@@ -1453,5 +1626,86 @@ footer {
     }
     .projet-bloc h3 {
         left: 4vw;
+    }
+}
+
+
+/* bouton de changement de thème */
+
+.theme-toggle {
+    position: fixed;
+    left: 2vw;
+    bottom: 3vh;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6vh;
+    height: 6vh;
+    padding: 0;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 4px #7a5c00;
+    border-radius: 50%;
+    box-shadow: #7a5c00 3px 3px;
+    font-size: 2.8vh;
+    line-height: 1;
+    cursor: pointer;
+    transform: rotate(8deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: #ffffff;
+    transform: translate(-3px, -3px) rotate(0deg);
+    box-shadow: #7a5c00 6px 6px;
+}
+
+.theme-toggle:focus-visible {
+    outline: 3px solid var(--titre);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .theme-toggle {
+        width: 5.5vh;
+        height: 5.5vh;
+        left: 4vw;
+        font-size: 2.6vh;
+    }
+}
+
+
+/* ==========================================================
+   Apparition en fondu au scroll (de la gauche vers la droite)
+   Les classes sont ajoutées / retirées par script.js.
+   On utilise la propriété "translate" (et non "transform") pour
+   ne pas gêner les effets de survol ni les rotations des stickers.
+   ========================================================== */
+
+   .reveal {
+    opacity: 0;
+    translate: -48px 0;
+}
+
+.reveal.reveal-visible {
+    animation: apparition-gauche 0.8s cubic-bezier(0.22, 0.8, 0.3, 1) var(--reveal-delay, 0ms) both;
+}
+
+@keyframes apparition-gauche {
+    from {
+        opacity: 0;
+        translate: -48px 0;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+@media print {
+    .reveal {
+        opacity: 1;
+        translate: none;
     }
 }
