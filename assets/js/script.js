@@ -15,7 +15,7 @@ function appliquerTheme(theme) {
     const bouton = document.getElementById("theme-toggle");
     if (bouton) {
         const versSombre = theme === "light";
-        bouton.textContent = versSombre ? "🌙" : "☀️";
+        bouton.textContent = versSombre ? "⏾" : "☀";
         bouton.setAttribute("aria-label", versSombre ? "Passer au thème sombre" : "Passer au thème clair");
         bouton.setAttribute("title", versSombre ? "Thème sombre" : "Thème clair");
     }
