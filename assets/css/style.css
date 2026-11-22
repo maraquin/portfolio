@@ -244,10 +244,7 @@ section {
     padding: 10vh 4vw;
 }
 
-.contenu li, .contenu p {
-    font-family: 'Nexa';
-    font-weight: bold;
-}
+
 
 
 
@@ -327,8 +324,6 @@ nav ul a {
     padding: 0.8vh 1.2vw;
     border: solid 3px transparent;
     border-radius: 50px;
-    font-family: 'Nexa';
-    font-weight: bold;
     font-size: 1.116rem;
     color: var(--texte);
     text-decoration: none;
@@ -349,8 +344,6 @@ nav .nav-cta {
     border: solid 3px #ffc800;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
-    font-family: 'Nexa';
-    font-weight: bold;
     font-size: 1.116rem;
     color: #17160f;
     text-decoration: none;
@@ -737,8 +730,6 @@ section {
     margin: 0;
     background-color: #ffc800;
     color: #17160f;
-    font-family: 'Nexa';
-    font-weight: bold;
     font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
@@ -1335,6 +1326,7 @@ section {
 #contact textarea:focus {
     background-color: var(--hover);
     box-shadow: #7a5c00 3px 3px;
+    outline: none;
 }
 
 #contact .envoyer {
