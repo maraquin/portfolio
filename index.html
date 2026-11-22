@@ -38,10 +38,25 @@
         <!-- section à propos -->
 
         <section id="apropos">
-            <div class="apropos-photo">
-                <img src="./assets/img/pdp_w_op.png" alt="photo de profil">
-                <span class="sticker sticker-haut">🎬 Montage vidéo</span>
-                <span class="sticker sticker-bas">📍 Angoulême</span>
+            <div class="apropos-photo" id="flip-photo" tabindex="0" role="button"
+                aria-label="Retourner la carte pour me voir enfant">
+                <div class="photo-inner">
+
+                    <!-- face avant -->
+                    <div class="photo-face photo-avant">
+                        <img src="./assets/img/pdp_w_op.png" alt="photo de profil">
+                        <span class="sticker sticker-haut">🎬 Montage vidéo</span>
+                        <span class="sticker sticker-bas">📍 Angoulême</span>
+                    </div>
+
+                    <!-- face arrière -->
+                    <div class="photo-face photo-arriere">
+                        <img src="./assets/img/pdp_enfant.jpg" alt="Maxime enfant">
+                        <span class="sticker sticker-haut">✏️ Dessin</span>
+                        <span class="sticker sticker-bas">📍 La Rochelle</span>
+                    </div>
+
+                </div>
             </div>
         
             <div class="apropos-texte">
@@ -217,7 +232,7 @@
                 <a href="./assets/pages/projet-affiche.html" class="carte">
                     <div class="carte-image">
                         <img src="./assets/img/projets/TP4-RAQUIN-Maxime-Affiche.jpg" alt="Aperçu de l'affiche sur le changement climatique">
-                        <span class="tag">Print</span>
+                        <span class="tag">Affiche</span>
                     </div>
                     <div class="carte-contenu">
                         <h3>Affiche et flyer</h3>
@@ -228,8 +243,8 @@
         
                 <a href="./assets/pages/projet-cv-book.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/cv_book/CV_Book.png" alt="Aperçu du CV Book">
-                        <span class="tag">Print</span>
+                        <img src="./assets/img/projets/cv_book/CV_Book_p1.png" alt="Aperçu du CV Book">
+                        <span class="tag">CV</span>
                     </div>
                     <div class="carte-contenu">
                         <h3>CV Book</h3>
@@ -326,5 +341,6 @@
     <div class="progression-barre" id="progression-barre"></div>
 </div>
 <script src="./assets/js/script.js"></script>
+<script src="./assets/js/curseur.js"></script>
 <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </html>

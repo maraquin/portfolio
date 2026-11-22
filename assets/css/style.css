@@ -401,10 +401,64 @@ section {
 .apropos-photo {
     position: relative;
     flex-shrink: 0;
+    perspective: 1200px;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: transform 0.3s ease;
+}
+
+/* hover identique au reste du site */
+.apropos-photo:hover {
+    transform: translate(-5px, -5px);
+}
+
+/* conteneur qui tourne */
+.photo-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.apropos-photo.retourne .photo-inner {
+    transform: rotateY(180deg);
+}
+
+/* le bloc complet : bordure, fond, ombre, stickers */
+.photo-face {
+    box-sizing: border-box;
     border: solid 7px #ffc800;
     border-radius: 30px;
     background-color: var(--fond2);
     box-shadow: #7a5c00 5px 5px;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.apropos-photo:hover .photo-face {
+    box-shadow: #7a5c00 8px 8px;
+}
+
+.photo-avant {
+    position: relative;
+}
+
+.photo-arriere {
+    position: absolute;
+    inset: 0;
+    transform: rotateY(180deg);
+}
+
+/* la photo d'enfance remplit exactement le même cadre */
+.apropos-photo .photo-arriere img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.apropos-photo:focus-visible {
+    outline: 3px solid #ffc800;
+    outline-offset: 6px;
 }
 
 
@@ -414,6 +468,43 @@ section {
     height: 50vh;
     width: auto;
     border-radius: 22px;
+}
+
+/* effet retournement de la photo */
+.flip {
+    perspective: 1000px;
+    cursor: pointer;
+    border-radius: 22px;
+}
+
+.flip-inner {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.7s cubic-bezier(.4, .2, .2, 1);
+}
+
+.flip.retourne .flip-inner {
+    transform: rotateY(180deg);
+}
+
+.apropos-photo .flip-face {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+/* la photo enfant se superpose et est déjà retournée */
+.apropos-photo .flip-arriere {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: rotateY(180deg);
+}
+
+.flip:focus-visible {
+    outline: 3px solid #ffc800;
+    outline-offset: 4px;
 }
 
 .sticker {
@@ -1510,7 +1601,7 @@ footer {
 .projet-visuel {
     position: relative;
     grid-column: 1;
-    grid-row: 1 / span 2;
+    grid-row: 1 / span 3;
     min-height: 30vh;
     border: solid 7px #ffc800;
     border-radius: 30px;
@@ -1562,7 +1653,7 @@ footer {
 
 /* le développement prend toute la largeur (photo + blocs) */
 .bloc-developpement {
-    grid-column: 1 / -1;
+    grid-column: 2;
     grid-row: 3;
 }
 
@@ -1596,6 +1687,53 @@ footer {
     justify-content: center;
 }
 
+/* --- galerie : images qui se suivent, sur toute la largeur --- */
+.projet-galerie {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4.5vh 1.5vw;
+    align-items: start;
+}
+
+.projet-image {
+    margin: 0;
+    border: solid 7px #ffc800;
+    border-radius: 30px;
+    background-color: var(--fond2);
+    box-shadow: #7a5c00 5px 5px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projet-image:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: #7a5c00 8px 8px;
+}
+
+.projet-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* optionnel : une image sur toute la largeur */
+.projet-image.pleine {
+    grid-column: 1;
+}
+
+.projet-titre-section {
+    align-self: flex-start;
+    margin: 0;
+    font-family: 'Cocogoose';
+    font-size: 5vh;
+    line-height: 1.2;
+    color: var(--titre);
+}
+
+.projet-titre-section span {
+    box-shadow: inset 0 -.25em 0 var(--surligne);
+}
+
 @media (max-width: 900px) {
     .page-projet {
         gap: 5vh;
@@ -1627,7 +1765,16 @@ footer {
     .projet-bloc h3 {
         left: 4vw;
     }
+    .projet-galerie {
+        grid-template-columns: 1fr;
+        gap: 5vh;
+    }
+    .projet-titre-section {
+        font-size: 4vh;
+    }
 }
+
+
 
 
 /* bouton de changement de thème */
@@ -1708,4 +1855,64 @@ footer {
         opacity: 1;
         translate: none;
     }
+}
+
+/* ==========================================================
+   CURSEUR PERSONNALISÉ — rond jaune translucide
+   Actif uniquement sur les appareils à souris (pas au tactile).
+   La classe .curseur-actif est posée sur <html> par curseur.js,
+   donc sans JS le curseur normal reste en place.
+   ========================================================== */
+
+html.curseur-actif,
+html.curseur-actif * {
+    cursor: none !important;
+}
+
+/* champs de texte : on garde le curseur I-beam pour la saisie */
+html.curseur-actif input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="submit"]):not([type="button"]),
+html.curseur-actif textarea {
+    cursor: text !important;
+}
+
+.curseur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100000;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.curseur.visible {
+    opacity: 1;
+}
+
+.curseur-rond {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 34px;
+    height: 34px;
+    margin: -17px 0 0 -17px;
+    box-sizing: border-box;
+    border: 4px solid #ffc800;
+    border-radius: 50%;
+    background-color: rgba(255, 200, 0, 0.28);
+    transition:
+        transform 0.2s cubic-bezier(.3, 1.6, .5, 1),
+        background-color 0.2s ease;
+}
+
+/* clic : petit effet d'écrasement */
+.curseur.clic .curseur-rond {
+    transform: scale(0.85);
+}
+
+/* sur un champ de texte : le rond s'efface, le I-beam prend le relais */
+.curseur.texte {
+    opacity: 0;
 }

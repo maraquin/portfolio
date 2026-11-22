@@ -143,3 +143,89 @@ if ("IntersectionObserver" in window && !sansAnimation) {
         observateur.observe(el);
     });
 }
+
+const carteMoi = document.getElementById('flip-photo');
+if (carteMoi) {
+    const basculer = () => carteMoi.classList.toggle('retourne');
+    carteMoi.addEventListener('click', basculer);
+    carteMoi.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            basculer();
+        }
+    });
+}
+
+/* ==========================================================
+   CURSEUR PERSONNALISÉ — curseur.js
+   Rond jaune translucide qui suit la souris.
+   Ne s'active que sur les appareils à pointeur précis (souris).
+   ========================================================== */
+   (function () {
+    'use strict';
+
+    // pas de curseur perso sur tactile / stylet sans survol
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+
+    var racine = document.documentElement;
+
+    var curseur = document.createElement('div');
+    curseur.className = 'curseur';
+    curseur.setAttribute('aria-hidden', 'true');
+    curseur.innerHTML = '<div class="curseur-rond"></div>';
+    document.body.appendChild(curseur);
+
+    racine.classList.add('curseur-actif');
+
+    // champs de saisie texte
+    var CHAMP_TEXTE = 'input:not([type="checkbox"]):not([type="radio"]):not([type="range"])' +
+                      ':not([type="submit"]):not([type="button"]), textarea';
+
+    var cibleX = 0, cibleY = 0;   // position réelle de la souris
+    var x = 0, y = 0;             // position affichée (lissée)
+    var enMarche = false;
+
+    function boucle() {
+        // léger retard pour un mouvement fluide
+        x += (cibleX - x) * 0.28;
+        y += (cibleY - y) * 0.28;
+        curseur.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+
+        if (Math.abs(cibleX - x) > 0.1 || Math.abs(cibleY - y) > 0.1) {
+            requestAnimationFrame(boucle);
+        } else {
+            enMarche = false;
+        }
+    }
+
+    document.addEventListener('mousemove', function (e) {
+        cibleX = e.clientX;
+        cibleY = e.clientY;
+
+        // première apparition : on se place directement, sans glisser depuis (0,0)
+        if (!curseur.classList.contains('visible')) {
+            x = cibleX;
+            y = cibleY;
+            curseur.classList.add('visible');
+        }
+
+        var el = e.target instanceof Element ? e.target : null;
+        curseur.classList.toggle('texte', !!(el && el.closest(CHAMP_TEXTE)));
+
+        if (!enMarche) {
+            enMarche = true;
+            requestAnimationFrame(boucle);
+        }
+    }, { passive: true });
+
+    document.addEventListener('mousedown', function () { curseur.classList.add('clic'); });
+    document.addEventListener('mouseup',   function () { curseur.classList.remove('clic'); });
+
+    // la souris quitte la fenêtre / y revient
+    document.documentElement.addEventListener('mouseleave', function () {
+        curseur.classList.remove('visible');
+    });
+    document.documentElement.addEventListener('mouseenter', function () {
+        curseur.classList.add('visible');
+    });
+})();
