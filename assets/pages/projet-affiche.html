@@ -2,13 +2,20 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="icon" type="image/png" href="../img/memoji.png" />
+    <link rel="icon" type="image/webp" href="../assets/img/memoji.webp" />
+    <meta name="description" content="Portfolio de Maxime Raquin, étudiant en BUT MMI à Angoulême : montage vidéo, design graphique et développement web.">
+    <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
     <title>Chaîne Youtube - Maxime Raquin</title>
 </head>
 <body>
+    <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
     <header>
+        <nav aria-label="Navigation principale">
+            <button type="button" class="burger" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+                <span class="burger-barres" aria-hidden="true"></span>
+            </button>
         <nav>
             <div class="navigation">
                 <ul>
@@ -34,7 +41,7 @@
         <div class="projet-grille">
 
             <div class="projet-visuel">
-                <img src="../img/projets/TP4-RAQUIN-Maxime-Affiche.jpg" alt="Aperçu de la chaîne Youtube">
+                <img src="../img/projets/TP4-RAQUIN-Maxime-Affiche.webp" alt="Aperçu de la chaîne Youtube">
             </div>
 
             <div class="projet-bloc bloc-contexte">
@@ -65,10 +72,10 @@
         <div class="projet-galerie">
 
             <figure class="projet-image">
-                <img src="../img/projets/TP4-RAQUIN-Maxime-Affiche.jpg" alt="Description de l'image 1">
+                <img src="../img/projets/TP4-RAQUIN-Maxime-Affiche.webp" alt="Description de l'image 1">
             </figure>
             <figure class="projet-image">
-                <img src="../img/projets/TP4-RAQUIN-Maxime-Flyer.jpg" alt="Description de l'image 2">
+                <img src="../img/projets/TP4-RAQUIN-Maxime-Flyer.webp" alt="Description de l'image 2">
             </figure>
             <!-- ajoute autant de <figure> que nécessaire -->
         </div>
@@ -106,7 +113,7 @@
     <div class="progression" aria-hidden="true">
         <div class="progression-barre" id="progression-barre"></div>
     </div>
-    <script src="../assets/js/script.js"></script>
+    <script src="../js/script.js"></script>
     <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 </body>
 </html>

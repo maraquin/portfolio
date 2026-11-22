@@ -244,7 +244,10 @@ section {
     padding: 10vh 4vw;
 }
 
-
+.contenu li, .contenu p {
+    font-family: 'Nexa';
+    font-weight: bold;
+}
 
 
 
@@ -324,6 +327,8 @@ nav ul a {
     padding: 0.8vh 1.2vw;
     border: solid 3px transparent;
     border-radius: 50px;
+    font-family: 'Nexa';
+    font-weight: bold;
     font-size: 1.116rem;
     color: var(--texte);
     text-decoration: none;
@@ -344,6 +349,8 @@ nav .nav-cta {
     border: solid 3px #ffc800;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
+    font-family: 'Nexa';
+    font-weight: bold;
     font-size: 1.116rem;
     color: #17160f;
     text-decoration: none;
@@ -730,6 +737,8 @@ section {
     margin: 0;
     background-color: #ffc800;
     color: #17160f;
+    font-family: 'Nexa';
+    font-weight: bold;
     font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
@@ -1948,12 +1957,10 @@ html {
 
 ::-webkit-scrollbar-track {
     background-color: var(--fond2);
-    border-left: 3px solid #7a5c00;
 }
 
 ::-webkit-scrollbar-thumb {
     background-color: #ffc800;
-    border: 4px solid #7a5c00;
     border-radius: 50px;
 }
 
@@ -1972,41 +1979,24 @@ html {
 
 /* ==========================================================
    MODE DYSLEXIE
-   Police OpenDyslexic + espacements plus aérés.
+   Police sans empattement classique (Verdana, la référence des
+   recommandations d'accessibilité), avec repli sur Tahoma / Arial.
+   Espacements recommandés (British Dyslexia Association / WCAG 1.4.12).
    La classe .dyslexie est posée sur <html> par dyslexie.js.
    ========================================================== */
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: local('OpenDyslexic'),
-         url('/assets/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-400-normal.woff2') format('woff2');
-}
-
-@font-face {
-    font-family: 'OpenDyslexic';
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: local('OpenDyslexic Bold'),
-         url('/assets/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
-         url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-700-normal.woff2') format('woff2');
-}
 
 html.dyslexie body,
 html.dyslexie body *,
 html.dyslexie body *::before,
 html.dyslexie body *::after {
-    font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
-    letter-spacing: 0.03em;
-    word-spacing: 0.12em;
+    font-family: Verdana, Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif !important;
+    letter-spacing: 0.02em;
+    word-spacing: 0.1em;
 }
 
 html.dyslexie .contenu p,
-html.dyslexie .contenu li {
+html.dyslexie .contenu li,
+html.dyslexie .contenu small {
     line-height: 1.7;
 }
 
@@ -2378,5 +2368,486 @@ img, video {
     }
     .dyslexie-toggle {
         left: calc(1rem + 2.5rem + 0.8rem);
+    }
+}
+
+
+/* ==========================================================
+   MENU BURGER (téléphone)
+   Le bouton et le panneau ne s'activent que si le JavaScript
+   tourne (classe .js sur <html>) : sinon le menu horizontal reste.
+   ========================================================== */
+
+.burger {
+    display: none;
+}
+
+@media (max-width: 640px) {
+
+    /* le header n'est plus une section : il disparaît et seul le bouton reste,
+       flottant en haut à droite comme les boutons thème et dyslexie */
+    .js header {
+        position: fixed;
+        top: calc(0.9rem + env(safe-area-inset-top, 0px));
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+        left: auto;
+        z-index: 1000;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .js nav {
+        width: auto;
+        padding: 0;
+    }
+
+    /* le contenu remonte : plus de bandeau en haut, juste de la place pour le bouton */
+    .js #apropos {
+        padding-top: 4.5rem;
+    }
+
+    /* bouton burger : même famille que les boutons de thème / dyslexie */
+    .js .burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        width: 2.9rem;
+        height: 2.9rem;
+        padding: 0;
+        background-color: #ffc800;
+        border: solid 4px #7a5c00;
+        border-radius: 50%;
+        box-shadow: #7a5c00 3px 3px;
+        cursor: pointer;
+        transform: rotate(-6deg);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
+    }
+
+    .js .burger[aria-expanded="true"] {
+        background-color: #17160f;
+        transform: translate(2px, 2px) rotate(0deg);
+        box-shadow: #7a5c00 1px 1px;
+    }
+
+    /* les 3 barres, qui se transforment en croix */
+    .burger-barres,
+    .burger-barres::before,
+    .burger-barres::after {
+        display: block;
+        width: 1.25rem;
+        height: 3px;
+        background-color: #17160f;
+        border-radius: 3px;
+        transition: transform 0.25s ease, background-color 0.25s ease, opacity 0.2s ease;
+    }
+    .burger-barres {
+        position: relative;
+    }
+    .burger-barres::before,
+    .burger-barres::after {
+        content: "";
+        position: absolute;
+        left: 0;
+    }
+    .burger-barres::before { top: -0.4rem; }
+    .burger-barres::after  { top: 0.4rem; }
+
+    .burger[aria-expanded="true"] .burger-barres {
+        background-color: transparent;
+    }
+    .burger[aria-expanded="true"] .burger-barres::before {
+        top: 0;
+        background-color: #ffc800;
+        transform: rotate(45deg);
+    }
+    .burger[aria-expanded="true"] .burger-barres::after {
+        top: 0;
+        background-color: #ffc800;
+        transform: rotate(-45deg);
+    }
+
+    /* panneau déroulant : même style que les cartes (bordure jaune, ombre brune) */
+    .js nav .navigation {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: auto;
+        right: 0;
+        width: min(calc(100vw - 2rem), 20rem);
+        max-width: none;
+        padding: 0.75rem;
+        background-color: var(--fond);
+        border: solid 5px #ffc800;
+        border-radius: 28px;
+        box-shadow: #7a5c00 4px 4px;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-0.5rem);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+    }
+
+    .js header.menu-ouvert .navigation {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+    }
+
+    .js nav .navigation ul {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0.35rem;
+        width: 100%;
+    }
+
+    .js nav .navigation ul a {
+        justify-content: flex-start;
+        min-height: 3rem;
+        padding: 0.5rem 1.1rem;
+        border-width: 3px;
+        font-size: 1.1rem;
+        white-space: normal;
+    }
+
+    .js nav .navigation ul a:hover,
+    .js nav .navigation ul a:focus-visible {
+        background-color: var(--hover);
+        border-color: #ffc800;
+    }
+}
+
+@media (max-width: 640px) and (prefers-reduced-motion: reduce) {
+    .js nav .navigation,
+    .burger-barres,
+    .burger-barres::before,
+    .burger-barres::after {
+        transition: none !important;
+    }
+}
+
+/* ==========================================================
+   PROJETDEX
+   Bouton sous les cartes projets + panneau de collection.
+   Le bloc est masqué sans JavaScript (la classe .js est posée
+   sur <html> dans le <head>).
+   ========================================================== */
+
+.projetdex-zone {
+    display: none;
+    margin-top: 6vh;
+}
+
+.js .projetdex-zone {
+    display: block;
+}
+
+.projetdex-ouvrir {
+    cursor: pointer;
+    font-family: 'Nexa', sans-serif;
+    font-size: 1.24rem;
+    font-weight: bold;
+    color: black;
+    background-color: #ffc800;
+    border: solid #ffc800 3px;
+    border-radius: 50px;
+    padding: 1vh 2.5vh;
+    box-shadow: #7a5c00 3px 3px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projetdex-ouvrir:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: #7a5c00 5px 5px;
+}
+
+/* --- panneau --- */
+.projetdex {
+    margin-top: 4vh;
+    padding: 3vh 2.5vw 3.5vh;
+    background-color: var(--fond2);
+    border: solid 7px #ffc800;
+    border-radius: 30px;
+    box-shadow: #7a5c00 5px 5px;
+    scroll-margin-top: 1.5rem;
+}
+
+.projetdex[hidden] {
+    display: none;
+}
+
+.projetdex:not([hidden]) {
+    animation: projetdex-entree 0.35s ease both;
+}
+
+@keyframes projetdex-entree {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* --- en-tête : titre à gauche, compteur en haut à droite --- */
+.projetdex-entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 3.5vh;
+}
+
+.projetdex-entete h3 {
+    margin: 0;
+    font-family: 'Cocogoose', sans-serif;
+    font-size: 1.86rem;
+    color: var(--brun);
+}
+
+.projetdex-consigne {
+    margin: 0.8vh 0 0;
+    color: var(--discret);
+    font-size: 1.054rem;
+    line-height: 1.5;
+}
+
+.projetdex-compteur {
+    flex-shrink: 0;
+    margin: 0;
+    padding: 0.4vh 1.6vh;
+    background-color: var(--fond);
+    color: var(--brun);
+    border: solid 3px var(--brun);
+    border-radius: 20px;
+    font-family: 'Nexa', sans-serif;
+    font-weight: bold;
+    font-size: 1.24rem;
+    white-space: nowrap;
+}
+
+.projetdex-compteur.est-complet {
+    background-color: #ffc800;
+    border-color: #ffc800;
+    color: #17160f;
+}
+
+/* --- grille de cases rondes --- */
+.projetdex-grille {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3vh 2.5vw;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.projetdex-case {
+    width: clamp(6rem, 22vw, 10rem);
+    margin: 0;
+    padding: 0;
+}
+
+.projetdex-case a,
+.est-bientot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2vh;
+    color: var(--texte);
+    text-decoration: none;
+}
+
+.est-bientot {
+    width: clamp(6rem, 22vw, 10rem);
+}
+
+.projetdex-rond {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: solid 5px #ffc800;
+    background-color: var(--fond);
+    box-shadow: #7a5c00 3px 3px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projetdex-rond img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.projetdex-nom {
+    font-family: 'Nexa', sans-serif;
+    font-weight: bold;
+    font-size: 0.992rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* projet visité : couleurs pleines + coche */
+.projetdex-coche {
+    position: absolute;
+    right: -0.35rem;
+    bottom: -0.35rem;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 3px var(--fond2);
+    border-radius: 50%;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* projet pas encore visité : image assombrie, bordure en pointillés, "?" */
+.est-verrouille .projetdex-rond,
+.est-bientot .projetdex-rond {
+    border-style: dashed;
+    box-shadow: none;
+}
+
+.est-verrouille .projetdex-rond img {
+    filter: grayscale(1) brightness(0.25) contrast(1.2);
+}
+
+.est-verrouille .projetdex-nom,
+.est-bientot .projetdex-nom {
+    color: var(--discret);
+}
+
+.projetdex-inconnu {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-family: 'Cocogoose', sans-serif;
+    font-size: 2.4rem;
+    color: #ffc800;
+}
+
+.est-bientot .projetdex-inconnu {
+    color: var(--brun);
+}
+
+@media (hover: hover) {
+    .projetdex-case a:hover .projetdex-rond {
+        transform: translate(-2px, -2px);
+    }
+
+    .est-visite a:hover .projetdex-rond {
+        box-shadow: #7a5c00 5px 5px;
+    }
+}
+
+.projetdex-case a:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 6px;
+    border-radius: 20px;
+}
+
+/* --- pied : message de fin + bouton fermer --- */
+.projetdex-pied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vh;
+    margin-top: 4vh;
+}
+
+.projetdex-statut {
+    display: contents;
+}
+
+.projetdex-bravo {
+    margin: 0;
+    padding: 1.4vh 2.5vh;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 3px #7a5c00;
+    border-radius: 20px;
+    box-shadow: #7a5c00 3px 3px;
+    font-family: 'Cocogoose', sans-serif;
+    font-size: 1.364rem;
+    line-height: 1.4;
+    text-align: center;
+    animation: projetdex-bravo 0.5s ease both;
+}
+
+@keyframes projetdex-bravo {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.projetdex-fermer {
+    cursor: pointer;
+    font-family: 'Nexa', sans-serif;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--titre);
+    background-color: transparent;
+    border: solid #ffc800 3px;
+    border-radius: 50px;
+    padding: 0.8vh 2.5vh;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.projetdex-fermer:hover {
+    background-color: #ffc800;
+    color: #17160f;
+}
+
+/* --- petits écrans --- */
+@media (max-width: 600px) {
+    .projetdex {
+        padding: 2.5vh 4vw 3vh;
+        border-width: 5px;
+    }
+
+    .projetdex-entete {
+        gap: 1rem;
+    }
+
+    .projetdex-entete h3 {
+        font-size: 1.5rem;
+    }
+
+    .projetdex-grille {
+        gap: 3vh 4vw;
+    }
+
+    .projetdex-bravo {
+        font-size: 1.15rem;
+    }
+}
+
+@media print {
+    .projetdex-zone {
+        display: none !important;
     }
 }

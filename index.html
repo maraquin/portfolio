@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="icon" type="image/png" href="./assets/img/memoji.png" />
+    <link rel="icon" type="image/webp" href="./assets/img/memoji.webp" />
     <meta name="description" content="Portfolio de Maxime Raquin, étudiant en BUT MMI à Angoulême : montage vidéo, design graphique et développement web.">
-    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+    <script>document.documentElement.classList.add("js");try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
     <title>Maxime Raquin - Portfolio</title>
 </head>
 <body>
     <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
     <header>
         <nav aria-label="Navigation principale">
+            <button type="button" class="burger" aria-expanded="false" aria-controls="menu-principal" aria-label="Ouvrir le menu">
+                <span class="burger-barres" aria-hidden="true"></span>
+            </button>
             <!--
             <div class="logo">
-                <a href="#apropos"><img src="./assets/img/memoji.png" alt=""></a>
+                <a href="#apropos"><img src="./assets/img/memoji.webp" alt=""></a>
             </div> 
             -->
-            <div class="navigation">
+            <div class="navigation" id="menu-principal">
                 <ul>
                     <li><a href="#apropos">A propos</a></li>
                     <li><a href="#parcours">Parcours</a></li>
@@ -31,7 +34,7 @@
     </header>
     <!--
         <main class="presentation">
-        <img src="./assets/img/memoji.png" alt="memoji">
+        <img src="./assets/img/memoji.webp" alt="memoji">
         <h1>Maxime Raquin</h1>
         </main>
     -->
@@ -48,15 +51,11 @@
                     <!-- face avant -->
                     <div class="photo-face photo-avant">
                         <img src="./assets/img/pdp_w_op.png" alt="photo de profil">
-                        <span class="sticker sticker-haut"><span aria-hidden="true">🎬</span> Montage vidéo</span>
-                        <span class="sticker sticker-bas"><span aria-hidden="true">📍</span> Angoulême</span>
                     </div>
 
                     <!-- face arrière -->
                     <div class="photo-face photo-arriere">
-                        <img src="./assets/img/pdp_enfant.jpg" alt="Maxime enfant">
-                        <span class="sticker sticker-haut"><span aria-hidden="true">✏️</span> Dessin</span>
-                        <span class="sticker sticker-bas"><span aria-hidden="true">📍</span> La Rochelle</span>
+                        <img src="./assets/img/pdp_enfant.webp" alt="Maxime enfant">
                     </div>
 
                 </div>
@@ -154,9 +153,9 @@
                     <div class="groupe">
                         <h4>Création</h4>
                         <ul>
-                            <li><img src="./assets/img/logiciels/DaVinci_Resolve_Studio.png" alt="">Davinci Resolve</li>
+                            <li><img src="./assets/img/logiciels/DaVinci_Resolve_Studio.webp" alt="">Davinci Resolve</li>
                             <li><img src="./assets/img/logiciels/Premiere_Pro.webp" alt="">Premiere Pro</li>
-                            <li><img src="./assets/img/logiciels/Photoshop.png" alt="">Photoshop</li>
+                            <li><img src="./assets/img/logiciels/Photoshop.webp" alt="">Photoshop</li>
                             <li><img src="./assets/img/logiciels/Illustrator.webp" alt="">Illustrator</li>
                         </ul>
                     </div>
@@ -164,10 +163,10 @@
                     <div class="groupe">
                         <h4>Code</h4>
                         <ul>
-                            <li><img src="./assets/img/logiciels/VS_code.png" alt="">VS Code</li>
+                            <li><img src="./assets/img/logiciels/VS_code.webp" alt="">VS Code</li>
                             <li><img src="./assets/img/logiciels/Html.webp" alt="">HTML</li>
                             <li><img src="./assets/img/logiciels/CSS.webp" alt="">CSS</li>
-                            <li><img src="./assets/img/logiciels/js.png" alt="">JS</li>
+                            <li><img src="./assets/img/logiciels/js.webp" alt="">JS</li>
                             <li><img src="./assets/img/logiciels/php.webp" alt="">PHP</li>
                         </ul>
                     </div>
@@ -184,9 +183,9 @@
             <p class="projets-intro">Une sélection de mes réalisations, du montage vidéo au design graphique.</p>
         
             <div class="cartes">
-                <a href="./assets/pages/projet-youtube.html" class="carte carte-vedette">
+                <a href="./assets/pages/projet-youtube.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/chaine_ytb.png" alt="Aperçu de la chaîne Youtube">
+                        <img src="./assets/img/projets/chaine_ytb.webp" alt="Aperçu de la chaîne Youtube">
                         <span class="tag">Vidéo</span>
                     </div>
                     <div class="carte-contenu">
@@ -198,7 +197,7 @@
         
                 <a href="./assets/pages/projet-logo-bde.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/compte_insta_bde.png" alt="Aperçu du logo du BDE">
+                        <img src="./assets/img/projets/compte_insta_bde.webp" alt="Aperçu du logo du BDE">
                         <span class="tag">Logo</span>
                     </div>
                     <div class="carte-contenu">
@@ -210,7 +209,7 @@
         
                 <a href="./assets/pages/projet-epicerie.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/SAE_fin_annee/charte_graphique.png" alt="Aperçu de la charte graphique">
+                        <img src="./assets/img/projets/SAE_fin_annee/charte_graphique.webp" alt="Aperçu de la charte graphique">
                         <span class="tag">Communication</span>
                     </div>
                     <div class="carte-contenu">
@@ -222,7 +221,7 @@
         
                 <a href="./assets/pages/projet-padel.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/padel/Affiche_rue_Padel.png" alt="Aperçu du logo Padel">
+                        <img src="./assets/img/projets/padel/Affiche_rue_Padel.webp" alt="Aperçu du logo Padel">
                         <span class="tag">Direction artistique</span>
                     </div>
                     <div class="carte-contenu">
@@ -234,7 +233,7 @@
         
                 <a href="./assets/pages/projet-affiche.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/TP4-RAQUIN-Maxime-Affiche.jpg" alt="Aperçu de l'affiche sur le changement climatique">
+                        <img src="./assets/img/projets/TP4-RAQUIN-Maxime-Affiche.webp" alt="Aperçu de l'affiche sur le changement climatique">
                         <span class="tag">Affiche</span>
                     </div>
                     <div class="carte-contenu">
@@ -246,7 +245,7 @@
         
                 <a href="./assets/pages/projet-cv-book.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/cv_book/CV_Book_p1.png" alt="Aperçu du CV Book">
+                        <img src="./assets/img/projets/cv_book/CV_Book_p1.webp" alt="Aperçu du CV Book">
                         <span class="tag">CV</span>
                     </div>
                     <div class="carte-contenu">
@@ -258,7 +257,7 @@
         
                 <a href="./assets/pages/projet-auto-portrait.html" class="carte">
                     <div class="carte-image">
-                        <img src="./assets/img/projets/TP4-RAQUIN-Vecto1.jpg" alt="Aperçu de l'affiche auto-portrait">
+                        <img src="./assets/img/projets/TP4-RAQUIN-Vecto1.webp" alt="Aperçu de l'affiche auto-portrait">
                         <span class="tag">Affiche</span>
                     </div>
                     <div class="carte-contenu">
@@ -267,6 +266,40 @@
                         <span class="suite">Lire la suite →</span>
                     </div>
                 </a>
+
+                <a href="./assets/pages/projet-video.html" class="carte">
+                    <div class="carte-image">
+                        <img src="./assets/img/projets/reportage/miniature_video.webp" alt="Aperçu de l'affiche auto-portrait">
+                        <span class="tag">Vidéo</span>
+                    </div>
+                    <div class="carte-contenu">
+                        <h3>Projet vidéo reportage</h3>
+                        <p>Réalisation d'un faux reportage scientifique avec interview</p>
+                        <span class="suite">Lire la suite →</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- projetdex : collection des projets visités -->
+            <div class="projetdex-zone">
+                <button type="button" class="projetdex-ouvrir" id="projetdex-ouvrir" aria-expanded="false" aria-controls="projetdex">Projetdex</button>
+
+                <div class="projetdex" id="projetdex" role="region" aria-labelledby="projetdex-titre" hidden>
+                    <div class="projetdex-entete">
+                        <div>
+                            <h3 id="projetdex-titre">Projetdex</h3>
+                            <p class="projetdex-consigne">Visitez chaque projet pour le débloquer.</p>
+                        </div>
+                        <p class="projetdex-compteur" id="projetdex-compteur"></p>
+                    </div>
+
+                    <ul class="projetdex-grille" id="projetdex-grille"></ul>
+
+                    <div class="projetdex-pied">
+                        <div class="projetdex-statut" id="projetdex-statut" role="status"></div>
+                        <button type="button" class="projetdex-fermer" id="projetdex-fermer">Fermer le projetdex</button>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -275,13 +308,12 @@
 
         <section id="contact">
             <div class="profil">
-                <span class="sticker-contact"><span aria-hidden="true">💬</span> Discutons !</span>
-                <img class="pdp" src="./assets/img/pdp.png" alt="photo de profil">
+                <img class="pdp" src="./assets/img/pdp.webp" alt="photo de profil">
                 <p class="nom">Maxime Raquin</p>
                 <p>Retrouve-moi sur les réseaux</p>
                 <div class="liens_profil">
                     <a href="https://www.instagram.com/maxime_rqn/" target="_blank" rel="noopener">
-                        <img src="./assets/img/Instagram_icon.png" alt="">Instagram <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
+                        <img src="./assets/img/Instagram_icon.webp" alt="">Instagram <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
                     </a>
                     <a href="https://www.youtube.com/@eudetlafrappe" target="_blank" rel="noopener">
                         <img src="./assets/img/youtube.webp" alt="">Youtube <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
@@ -294,7 +326,7 @@
         
             <div class="formulaire">
                 <h2>Contact</h2>
-                <form action="/ma-page-de-traitement" method="post">
+                <form action="./formulaire.php" method="post">
                     <div class="ligne">
                         <label for="name" class="sr-only">Nom</label>
                         <input type="text" id="name" name="user_name" placeholder="Nom" autocomplete="family-name" required>
@@ -345,5 +377,7 @@
 <script src="./assets/js/script.js"></script>
 <script src="./assets/js/curseur.js"></script>
 <script src="./assets/js/dyslexie.js"></script>
+<script src="./assets/js/menu.js"></script>
+<script src="./assets/js/projetdex.js"></script>
 </body>
 </html>
