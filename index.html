@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" type="image/png" href="./assets/img/memoji.png" />
+    <meta name="description" content="Portfolio de Maxime Raquin, étudiant en BUT MMI à Angoulême : montage vidéo, design graphique et développement web.">
+    <script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
     <title>Maxime Raquin - Portfolio</title>
 </head>
 <body>
+    <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
     <header>
-        <nav>
+        <nav aria-label="Navigation principale">
             <!--
             <div class="logo">
                 <a href="#apropos"><img src="./assets/img/memoji.png" alt=""></a>
@@ -33,7 +36,7 @@
         </main>
     -->
 
-    <main class="contenu">
+    <main class="contenu" id="contenu" tabindex="-1">
 
         <!-- section à propos -->
 
@@ -45,23 +48,23 @@
                     <!-- face avant -->
                     <div class="photo-face photo-avant">
                         <img src="./assets/img/pdp_w_op.png" alt="photo de profil">
-                        <span class="sticker sticker-haut">🎬 Montage vidéo</span>
-                        <span class="sticker sticker-bas">📍 Angoulême</span>
+                        <span class="sticker sticker-haut"><span aria-hidden="true">🎬</span> Montage vidéo</span>
+                        <span class="sticker sticker-bas"><span aria-hidden="true">📍</span> Angoulême</span>
                     </div>
 
                     <!-- face arrière -->
                     <div class="photo-face photo-arriere">
                         <img src="./assets/img/pdp_enfant.jpg" alt="Maxime enfant">
-                        <span class="sticker sticker-haut">✏️ Dessin</span>
-                        <span class="sticker sticker-bas">📍 La Rochelle</span>
+                        <span class="sticker sticker-haut"><span aria-hidden="true">✏️</span> Dessin</span>
+                        <span class="sticker sticker-bas"><span aria-hidden="true">📍</span> La Rochelle</span>
                     </div>
 
                 </div>
             </div>
         
             <div class="apropos-texte">
-                <h5>Etudiant en MMI</h5>
-                <h3>Maxime <span>Raquin</span></h3>
+                <p class="sous-titre">Etudiant en MMI</p>
+                <h1>Maxime <span>Raquin</span></h1>
         
                 <div class="apropos-carte">
                     <p>J'ai toujours été passionné de montage vidéo si bien qu'en 2018,
@@ -88,26 +91,26 @@
             <div class="etapes">
         
                 <div class="etape">
-                    <h4>2024</h4>
-                    <h6>Diplôme</h6>
+                    <div class="annee">2024</div>
+                    <div class="type">Diplôme</div>
                     <h3>Cambridge IGCSE</h3>
-                    <h5>Lycée Fénelon Notre-Dame</h5>
+                    <div class="ecole">Lycée Fénelon Notre-Dame</div>
                     <p>En première, j'ai passé un examen d'anglais de littérature et d'histoire qui m'a permis d'améliorer grandement mon niveau d'anglais jusqu'au B2.</p>
                 </div>
         
                 <div class="etape">
-                    <h4>2025</h4>
-                    <h6>Diplôme</h6>
+                    <div class="annee">2025</div>
+                    <div class="type">Diplôme</div>
                     <h3>Baccalauréat</h3>
-                    <h5>Lycée Fénelon Notre-Dame</h5>
+                    <div class="ecole">Lycée Fénelon Notre-Dame</div>
                     <p>J'ai eu mon bac avec mention Bien en spécialité HGGSP-NSI au lycée Fénelon Notre-Dame à La Rochelle.</p>
                 </div>
         
                 <div class="etape">
-                    <h4>2026</h4>
-                    <h6>Formation</h6>
+                    <div class="annee">2026</div>
+                    <div class="type">Formation</div>
                     <h3>BUT MMI</h3>
-                    <h5>IUT Angoulême</h5>
+                    <div class="ecole">IUT Angoulême</div>
                     <p>Je suis actuellement en 2ème année de BUT MMI à l'IUT Angoulême où je réalise des projets audiovisuels et créatifs.</p>
                     <span class="en_cours">En cours</span>
                 </div>
@@ -123,22 +126,22 @@
                     <h3>Savoir-faire</h3>
                     <ul>
                         <li>
-                            <span class="num">✏️</span>
+                            <span class="num" aria-hidden="true">✏️</span>
                             <strong>Design graphique</strong>
                             <small>Affiches, logos, chartes graphiques</small>
                         </li>
                         <li>
-                            <span class="num">🎬</span>
+                            <span class="num" aria-hidden="true">🎬</span>
                             <strong>Montage vidéo</strong>
                             <small>Rythme, animations, motion design</small>
                         </li>
                         <li>
-                            <span class="num">💻</span>
+                            <span class="num" aria-hidden="true">💻</span>
                             <strong>Développement web</strong>
                             <small>Intégration et sites interactifs</small>
                         </li>
                         <li>
-                            <span class="num">🎥</span>
+                            <span class="num" aria-hidden="true">🎥</span>
                             <strong>Production audiovisuelle</strong>
                             <small>Tournage, cadrage, post-production</small>
                         </li>
@@ -272,19 +275,19 @@
 
         <section id="contact">
             <div class="profil">
-                <span class="sticker-contact">💬 Discutons !</span>
+                <span class="sticker-contact"><span aria-hidden="true">💬</span> Discutons !</span>
                 <img class="pdp" src="./assets/img/pdp.png" alt="photo de profil">
-                <h3>Maxime Raquin</h3>
+                <p class="nom">Maxime Raquin</p>
                 <p>Retrouve-moi sur les réseaux</p>
                 <div class="liens_profil">
                     <a href="https://www.instagram.com/maxime_rqn/" target="_blank" rel="noopener">
-                        <img src="./assets/img/Instagram_icon.png" alt="">Instagram
+                        <img src="./assets/img/Instagram_icon.png" alt="">Instagram <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
                     </a>
                     <a href="https://www.youtube.com/@eudetlafrappe" target="_blank" rel="noopener">
-                        <img src="./assets/img/youtube.webp" alt="">Youtube
+                        <img src="./assets/img/youtube.webp" alt="">Youtube <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
                     </a>
                     <a href="https://www.linkedin.com/in/maxime-raquin-70a09a444/" target="_blank" rel="noopener">
-                        <img src="./assets/img/linkedin.webp" alt="">Linkedin
+                        <img src="./assets/img/linkedin.webp" alt="">Linkedin <span class="sr-only">(s'ouvre dans un nouvel onglet)</span>
                     </a>
                 </div>
             </div>
@@ -294,14 +297,14 @@
                 <form action="/ma-page-de-traitement" method="post">
                     <div class="ligne">
                         <label for="name" class="sr-only">Nom</label>
-                        <input type="text" id="name" name="user_name" placeholder="Nom" required>
+                        <input type="text" id="name" name="user_name" placeholder="Nom" autocomplete="family-name" required>
         
                         <label for="firstname" class="sr-only">Prénom</label>
-                        <input type="text" id="firstname" name="user_firstname" placeholder="Prénom" required>
+                        <input type="text" id="firstname" name="user_firstname" placeholder="Prénom" autocomplete="given-name" required>
                     </div>
                     <div class="ligne">
                         <label for="mail" class="sr-only">E-Mail</label>
-                        <input type="email" id="mail" name="user_mail" placeholder="E-Mail" required>
+                        <input type="email" id="mail" name="user_mail" placeholder="E-Mail" autocomplete="email" required>
                     </div>
                     <div class="ligne">
                         <label for="msg" class="sr-only">Message</label>
@@ -315,8 +318,8 @@
     </main>
     <footer>
         <div class="footer">
-            <div class="navigation">
-                <h5>Navigation</h5>
+            <div class="navigation" role="navigation" aria-label="Navigation secondaire">
+                <h2>Navigation</h2>
                 <ul>
                     <li><a href="#apropos">A propos</a></li>
                     <li><a href="#parcours">Parcours</a></li>
@@ -326,7 +329,7 @@
                 </ul>
             </div>
             <div class="me_contacter">
-                <h5>Me contacter</h5>
+                <h2>Me contacter</h2>
                 <ul>
                     <li>maximeraquin08@gmail.com</li>
                 </ul>
@@ -334,7 +337,6 @@
         </div>
         <p>© 2026 Maxime - Portfolio MMI</p>
     </footer>
-</body>
 <a href="#" class="retour-haut" id="retour-haut" aria-label="Retour en haut de la page">▲</a>
 <div class="fond" aria-hidden="true"></div>
 <div class="progression" aria-hidden="true">
@@ -342,5 +344,6 @@
 </div>
 <script src="./assets/js/script.js"></script>
 <script src="./assets/js/curseur.js"></script>
-<script>try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<script src="./assets/js/dyslexie.js"></script>
+</body>
 </html>

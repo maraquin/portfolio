@@ -229,3 +229,47 @@ if (carteMoi) {
         curseur.classList.add('visible');
     });
 })();
+
+
+/* ==========================================================
+   MODE DYSLEXIE — dyslexie.js
+   Bouton "Aa" qui active la police OpenDyslexic sur tout le site.
+   Le choix est mémorisé dans le navigateur.
+   ========================================================== */
+   (function () {
+    'use strict';
+
+    var racine = document.documentElement;
+    var CLE = 'dyslexie';
+
+    function lire() {
+        try { return localStorage.getItem(CLE) === 'on'; } catch (e) { return false; }
+    }
+    function ecrire(actif) {
+        try { localStorage.setItem(CLE, actif ? 'on' : 'off'); } catch (e) {}
+    }
+
+    var bouton = document.createElement('button');
+    bouton.type = 'button';
+    bouton.className = 'dyslexie-toggle';
+    bouton.textContent = 'Aa';
+    bouton.title = 'Police adaptée à la dyslexie';
+
+    function appliquer(actif) {
+        racine.classList.toggle('dyslexie', actif);
+        bouton.setAttribute('aria-pressed', actif ? 'true' : 'false');
+        bouton.setAttribute('aria-label',
+            actif ? 'Désactiver la police adaptée à la dyslexie'
+                  : 'Activer la police adaptée à la dyslexie');
+    }
+
+    bouton.addEventListener('click', function () {
+        var actif = !racine.classList.contains('dyslexie');
+        appliquer(actif);
+        ecrire(actif);
+    });
+
+    document.body.appendChild(bouton);
+    appliquer(lire());
+})();
+

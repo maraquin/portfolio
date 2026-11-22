@@ -148,24 +148,32 @@
     --pois: rgba(255, 200, 0, 0.35);
     --bande: rgba(242, 239, 227, 0.6);
     --footer: rgba(251, 250, 245, 0.92);
-    --placeholder: #b3a77a;
+    --placeholder: #6f6648;
+    --discret: #595959;
+    --accent-doux: #7a5c00;
+    --bord-champ: #7a5c00;
+    --focus: #17160f;
 }
 
 [data-theme="dark"] {
     color-scheme: dark;
-    --fond: #14130e;
-    --fond2: #1c1a12;
-    --carte2: #26231a;
+    --fond: #0a0906;
+    --fond2: #100f0a;
+    --carte2: #17150e;
     --titre: #f7f3e3;
     --texte: #ece6cf;
     --texte2: #d9d1b3;
     --brun: #ffc800;
-    --hover: #3a3212;
+    --hover: #2a230e;
     --surligne: #9a7500;
-    --pois: rgba(255, 200, 0, 0.10);
-    --bande: rgba(28, 26, 18, 0.7);
-    --footer: rgba(20, 19, 14, 0.94);
-    --placeholder: #7d7455;
+    --pois: rgba(255, 200, 0, 0.06);
+    --bande: rgba(14, 13, 9, 0.8);
+    --footer: rgba(7, 7, 5, 0.97);
+    --placeholder: #9d9473;
+    --discret: #b8b09a;
+    --accent-doux: #e6b800;
+    --bord-champ: #ffc800;
+    --focus: #ffc800;
 }
 
 @font-face {
@@ -213,7 +221,7 @@ body {
 }
 
 section {
-    height: 100vh;
+    min-height: 100vh;
     margin-left: auto;
     margin-right: auto;
 }
@@ -222,7 +230,7 @@ section {
 .contenu h2 {
     margin: 0px;
     font-family: 'Cocogoose';
-    font-size: 4vh;
+    font-size: 2.48rem;
     color: var(--titre);
     box-shadow: inset 0 -.30em 0 var(--surligne);
     width: fit-content;
@@ -285,7 +293,7 @@ nav .logo {
     border-radius: 50%;
     box-shadow: #7a5c00 3px 3px;
     font-family: 'Cocogoose';
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     text-decoration: none;
     transform: rotate(-6deg);
     transition: transform 0.2s ease;
@@ -321,7 +329,7 @@ nav ul a {
     border-radius: 50px;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     color: var(--texte);
     text-decoration: none;
     white-space: nowrap;
@@ -343,7 +351,7 @@ nav .nav-cta {
     box-shadow: #7a5c00 3px 3px;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     color: #17160f;
     text-decoration: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
@@ -355,9 +363,10 @@ nav .nav-cta:hover {
     box-shadow: #7a5c00 5px 5px;
 }
 
-/* les ancres ne passent pas sous le header collant */
+/* les ancres arrivent pile en haut de la section
+   (le header n'est pas collant, donc aucun décalage n'est nécessaire) */
 section {
-    scroll-margin-top: 10vh;
+    scroll-margin-top: 0;
 }
 
 @media (max-width: 900px) {
@@ -378,11 +387,11 @@ section {
     }
     nav ul a {
         padding: 0.8vh 2.5vw;
-        font-size: 1.6vh;
+        font-size: 0.992rem;
     }
     nav .nav-cta {
         margin-left: auto;
-        font-size: 1.6vh;
+        font-size: 0.992rem;
     }
 }
 
@@ -457,7 +466,7 @@ section {
 }
 
 .apropos-photo:focus-visible {
-    outline: 3px solid #ffc800;
+    outline: 3px solid var(--focus);
     outline-offset: 6px;
 }
 
@@ -503,7 +512,7 @@ section {
 }
 
 .flip:focus-visible {
-    outline: 3px solid #ffc800;
+    outline: 3px solid var(--focus);
     outline-offset: 4px;
 }
 
@@ -513,7 +522,7 @@ section {
     color: #17160f;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.7vh;
+    font-size: 1.054rem;
     padding: 0.8vh 2vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
@@ -541,9 +550,11 @@ section {
     width: 45vw;
 }
 
-#apropos h5 {
+#apropos .sous-titre {
     margin: 0;
-    font-size: 2vh;
+    width: fit-content;
+    font-weight: bold;
+    font-size: 1.24rem;
     color: #080808;
     background-color: #ffc800;
     border-radius: 50px;
@@ -551,15 +562,15 @@ section {
     box-shadow: #7a5c00 3px 3px;
 }
 
-#apropos h3 {
+#apropos h1 {
     margin: 0;
     font-family: 'Cocogoose';
-    font-size: 7vh;
+    font-size: 4.34rem;
     line-height: 1.1;
     color: var(--titre);
 }
 
-#apropos h3 span {
+#apropos h1 span {
     box-shadow: inset 0 -.25em 0 var(--surligne);
 }
 
@@ -583,7 +594,7 @@ section {
 #apropos .apropos-carte p {
     margin: 0;
     color: var(--texte2);
-    font-size: 1.9vh;
+    font-size: 1.178rem;
     line-height: 1.6;
 }
 
@@ -599,7 +610,7 @@ section {
     flex-direction: column;
     gap: 0.5vh;
     background-color: var(--carte2);
-    border: solid 3px #ffc800;
+    border: solid 3px var(--bord-champ);
     border-radius: 20px;
     padding: 1.8vh 1vw;
     text-align: center;
@@ -614,12 +625,12 @@ section {
 
 .chiffres strong {
     font-family: 'Cocogoose';
-    font-size: 2.4vh;
+    font-size: 1.488rem;
     color: var(--brun);
 }
 
 .chiffres small {
-    font-size: 1.5vh;
+    font-size: 0.93rem;
     color: var(--texte2);
 }
 
@@ -628,7 +639,7 @@ section {
     display: flex;
     flex-direction: row;
     gap: 1.5vh;
-    font-size: 2vh;
+    font-size: 1.24rem;
 }
 
 .btn-projets {
@@ -719,7 +730,7 @@ section {
 }
 
 /* année en "sticker" qui dépasse de la carte */
-.etape h4 {
+.etape .annee {
     position: absolute;
     top: -2.8vh;
     left: 2vw;
@@ -728,16 +739,17 @@ section {
     color: #17160f;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
 }
 
-.etape h6 {
+.etape .type {
     width: fit-content;
+    font-weight: bold;
     margin: 0;
-    font-size: 1.5vh;
+    font-size: 0.93rem;
     color: var(--brun);
     border: solid 3px var(--brun);
     border-radius: 20px;
@@ -747,20 +759,21 @@ section {
 .etape h3 {
     margin: 0.5vh 0 0;
     font-family: 'Cocogoose';
-    font-size: 2.8vh;
+    font-size: 1.736rem;
     color: var(--texte2);
 }
 
-.etape h5 {
+.etape .ecole {
     margin: 0;
-    font-size: 1.7vh;
-    color: #cea100;
+    font-weight: bold;
+    font-size: 1.054rem;
+    color: var(--accent-doux);
 }
 
 .etape p {
     margin: 1vh 0 0;
     color: var(--texte2);
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     line-height: 1.5;
 }
 
@@ -774,7 +787,7 @@ section {
     background-color: #ffc800;
     color: #17160f;
     font-weight: bold;
-    font-size: 1.5vh;
+    font-size: 0.93rem;
     padding: 0.6vh 1.8vh;
     border-radius: 50px;
 }
@@ -785,7 +798,7 @@ section {
     height: 1vh;
     border-radius: 50%;
     background-color: #17160f;
-    animation: clignote 1.2s ease-in-out infinite;
+    animation: clignote 1.2s ease-in-out 4;
 }
 
 @keyframes clignote {
@@ -846,7 +859,7 @@ section {
     background-color: #ffc800;
     color: #17160f;
     font-family: 'Cocogoose';
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
@@ -892,18 +905,18 @@ section {
     background-color: #ffc800;
     border-radius: 50%;
     font-family: initial; /* évite que Cocogoose ne gêne le rendu */
-    font-size: 2.6vh;
+    font-size: 1.612rem;
     padding: 0;
 }
 
 .competences strong {
     font-family: 'Cocogoose';
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     color: var(--brun);
 }
 
 .competences small {
-    font-size: 1.6vh;
+    font-size: 0.992rem;
     color: var(--texte2);
     font-weight: lighter;
     line-height: 1.4;
@@ -914,7 +927,7 @@ section {
 .logiciels .groupe h4 {
     width: fit-content;
     margin: 0 0 1.5vh;
-    font-size: 1.5vh;
+    font-size: 0.93rem;
     color: var(--brun);
     border: solid 3px var(--brun);
     border-radius: 20px;
@@ -937,7 +950,7 @@ section {
     border: solid 3px #ffc800;
     border-radius: 20px;
     padding: 1.8vh 1vh;
-    font-size: 1.6vh;
+    font-size: 0.992rem;
     text-align: center;
     color: var(--texte);
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -984,8 +997,8 @@ section {
 
 .projets-intro {
     margin: -2vh 0 5vh;
-    color: grey;
-    font-size: 2vh;
+    color: var(--discret);
+    font-size: 1.24rem;
 }
 
 .cartes {
@@ -1047,7 +1060,7 @@ section {
     border: solid 3px var(--brun);
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.4vh;
+    font-size: 0.875rem;
     padding: 0.4vh 1.4vh;
     border-radius: 20px;
 }
@@ -1064,23 +1077,23 @@ section {
 .carte h3 {
     margin: 0;
     font-family: 'Cocogoose';
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     color: var(--brun);
 }
 
 .carte-vedette h3 {
-    font-size: 3vh;
+    font-size: 1.86rem;
 }
 
 .carte p {
     margin: 0;
     color: var(--texte2);
-    font-size: 1.7vh;
+    font-size: 1.054rem;
     line-height: 1.5;
 }
 
 .carte-vedette p {
-    font-size: 2vh;
+    font-size: 1.24rem;
 }
 
 .suite {
@@ -1091,7 +1104,7 @@ section {
     padding: 0.8vh 2vh;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.6vh;
+    font-size: 0.992rem;
     color: var(--texte);
     background-color: transparent;
     transition: background-color 0.3s ease;
@@ -1186,7 +1199,7 @@ section {
     color: #17160f;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
@@ -1203,17 +1216,18 @@ section {
     margin-bottom: 2vh;
 }
 
-#contact .profil h3 {
+#contact .profil .nom {
     margin: 0;
+    font-weight: bold;
     font-family: 'Cocogoose';
-    font-size: 3.5vh;
+    font-size: 2.17rem;
     color: var(--brun);
 }
 
 #contact .profil p {
     margin: 1vh 0 3vh;
-    color: grey;
-    font-size: 2vh;
+    color: var(--discret);
+    font-size: 1.24rem;
 }
 
 #contact .liens_profil {
@@ -1234,7 +1248,7 @@ section {
     padding: 1vh 2.5vh;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 1.24rem;
     color: var(--texte);
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
@@ -1279,7 +1293,7 @@ section {
     background-color: #ffc800;
     color: #17160f;
     box-shadow: #7a5c00 3px 3px;
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
 }
@@ -1301,7 +1315,7 @@ section {
     border: solid 3px #ffc800;
     border-radius: 20px;
     font-family: 'Nexa';
-    font-size: 2vh;
+    font-size: 1.24rem;
     color: var(--texte2);
     transition: background-color 0.3s ease, box-shadow 0.2s ease;
 }
@@ -1319,7 +1333,6 @@ section {
 
 #contact input:focus,
 #contact textarea:focus {
-    outline: none;
     background-color: var(--hover);
     box-shadow: #7a5c00 3px 3px;
 }
@@ -1332,7 +1345,7 @@ section {
     padding: 1.5vh 4vh;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 1.24rem;
     cursor: pointer;
     box-shadow: #7a5c00 3px 3px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
@@ -1398,17 +1411,18 @@ footer .footer{
 }
 
 .footer li {
-    color: grey;
-    font-size: 2vh;
+    color: var(--discret);
+    font-size: 1.24rem;
 }
 
-.footer h5 {
-    font-size: 3vh;
+.footer h2 {
+    margin: 1.67em 0;
+    font-size: 1.86rem;
 }
 
 footer p, a {
     text-align: center;
-    color: grey;
+    color: var(--discret);
     text-decoration: none;
 }
 
@@ -1455,7 +1469,7 @@ footer {
     border-radius: 50%;
     box-shadow: #7a5c00 3px 3px;
     font-family: Arial, sans-serif;
-    font-size: 3vh;
+    font-size: 1.86rem;
     font-weight: bold;
     line-height: 1;
     text-decoration: none;
@@ -1484,7 +1498,7 @@ footer {
         width: 5.5vh;
         height: 5.5vh;
         right: 4vw;
-        font-size: 2.8vh;
+        font-size: 1.736rem;
     }
 }
 
@@ -1546,7 +1560,7 @@ footer {
     padding: 1vh 2.5vh;
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 2vh;
+    font-size: 1.24rem;
     text-decoration: none;
     box-shadow: #7a5c00 3px 3px;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
@@ -1571,7 +1585,7 @@ footer {
     background-color: #ffc800;
     color: #080808;
     border: none;
-    font-size: 2vh;
+    font-size: 1.24rem;
     padding: 0.6vh 2vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
@@ -1580,7 +1594,7 @@ footer {
 .projet-entete h1 {
     margin: 0;
     font-family: 'Cocogoose';
-    font-size: 7vh;
+    font-size: 4.34rem;
     line-height: 1.2;
     color: var(--titre);
 }
@@ -1666,7 +1680,7 @@ footer {
     background-color: #ffc800;
     color: #17160f;
     font-family: 'Cocogoose';
-    font-size: 2.2vh;
+    font-size: 1.364rem;
     padding: 0.8vh 2.5vh;
     border-radius: 50px;
     box-shadow: #7a5c00 3px 3px;
@@ -1677,7 +1691,7 @@ footer {
     color: var(--texte2);
     font-family: 'Nexa';
     font-weight: bold;
-    font-size: 1.8vh;
+    font-size: 1.116rem;
     line-height: 1.5;
 }
 
@@ -1725,7 +1739,7 @@ footer {
     align-self: flex-start;
     margin: 0;
     font-family: 'Cocogoose';
-    font-size: 5vh;
+    font-size: 3.1rem;
     line-height: 1.2;
     color: var(--titre);
 }
@@ -1739,7 +1753,7 @@ footer {
         gap: 5vh;
     }
     .projet-entete h1 {
-        font-size: 5vh;
+        font-size: 3.1rem;
     }
     .page-projet {
         padding: 4vh 3vw 8vh;
@@ -1770,7 +1784,7 @@ footer {
         gap: 5vh;
     }
     .projet-titre-section {
-        font-size: 4vh;
+        font-size: 2.48rem;
     }
 }
 
@@ -1795,7 +1809,7 @@ footer {
     border: solid 4px #7a5c00;
     border-radius: 50%;
     box-shadow: #7a5c00 3px 3px;
-    font-size: 2.8vh;
+    font-size: 1.736rem;
     line-height: 1;
     cursor: pointer;
     transform: rotate(8deg);
@@ -1818,7 +1832,7 @@ footer {
         width: 5.5vh;
         height: 5.5vh;
         left: 4vw;
-        font-size: 2.6vh;
+        font-size: 1.612rem;
     }
 }
 
@@ -1915,4 +1929,462 @@ html.curseur-actif textarea {
 /* sur un champ de texte : le rond s'efface, le I-beam prend le relais */
 .curseur.texte {
     opacity: 0;
+}
+
+
+/* ==========================================================
+   BARRE DE SCROLL — jaune, même esprit que le header :
+   bordure brune épaisse, bords arrondis, effet "bouton".
+   ========================================================== */
+
+html {
+    scrollbar-width: auto;
+}
+
+/* Firefox (qui ne gère pas ::-webkit-scrollbar) */
+@supports not selector(::-webkit-scrollbar) {
+    html {
+        scrollbar-color: #ffc800 var(--fond2);
+    }
+}
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 18px;
+    height: 18px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--fond2);
+    border-left: 3px solid #7a5c00;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ffc800;
+    border: 4px solid #7a5c00;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #fff3c2;
+}
+
+::-webkit-scrollbar-thumb:active {
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: var(--fond2);
+}
+
+
+/* ==========================================================
+   MODE DYSLEXIE
+   Police OpenDyslexic + espacements plus aérés.
+   La classe .dyslexie est posée sur <html> par dyslexie.js.
+   ========================================================== */
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('OpenDyslexic'),
+         url('/assets/fonts/OpenDyslexic-Regular.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'OpenDyslexic';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('OpenDyslexic Bold'),
+         url('/assets/fonts/OpenDyslexic-Bold.woff2') format('woff2'),
+         url('https://cdn.jsdelivr.net/fontsource/fonts/opendyslexic@5.3.0/latin-700-normal.woff2') format('woff2');
+}
+
+html.dyslexie body,
+html.dyslexie body *,
+html.dyslexie body *::before,
+html.dyslexie body *::after {
+    font-family: 'OpenDyslexic', 'Comic Sans MS', sans-serif !important;
+    letter-spacing: 0.03em;
+    word-spacing: 0.12em;
+}
+
+html.dyslexie .contenu p,
+html.dyslexie .contenu li {
+    line-height: 1.7;
+}
+
+/* le texte ne doit pas être justifié ni en italique : plus dur à lire */
+html.dyslexie body * {
+    text-align: left;
+    font-style: normal;
+}
+
+/* bouton dyslexie : jumeau du bouton de thème, posé juste à côté */
+.dyslexie-toggle {
+    position: fixed;
+    left: calc(2vw + 6vh + 1.6vh);
+    bottom: 3vh;
+    z-index: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6vh;
+    height: 6vh;
+    padding: 0;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 4px #7a5c00;
+    border-radius: 50%;
+    box-shadow: #7a5c00 3px 3px;
+    font-family: 'Cocogoose', sans-serif;
+    font-size: 1.364rem;
+    line-height: 1;
+    letter-spacing: 0;
+    cursor: pointer;
+    transform: rotate(-8deg);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.dyslexie-toggle:hover {
+    background-color: #ffffff;
+    transform: translate(-3px, -3px) rotate(0deg);
+    box-shadow: #7a5c00 6px 6px;
+}
+
+/* mode actif : bouton "enfoncé" */
+.dyslexie-toggle[aria-pressed="true"] {
+    background-color: #17160f;
+    color: #ffc800;
+    transform: translate(2px, 2px) rotate(0deg);
+    box-shadow: #7a5c00 1px 1px;
+}
+
+.dyslexie-toggle:focus-visible {
+    outline: 3px solid var(--titre);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .dyslexie-toggle {
+        width: 5.5vh;
+        height: 5.5vh;
+        left: calc(4vw + 5.5vh + 1.6vh);
+        font-size: 1.24rem;
+    }
+}
+
+
+/* ==========================================================
+   ACCESSIBILITÉ
+   ========================================================== */
+
+/* lien d'évitement : visible uniquement au focus clavier */
+.lien-evitement {
+    position: absolute;
+    top: -20rem;
+    left: 1rem;
+    z-index: 100001;
+    padding: 0.8rem 1.4rem;
+    background-color: #ffc800;
+    color: #17160f;
+    border: solid 4px #7a5c00;
+    border-radius: 50px;
+    box-shadow: #7a5c00 3px 3px;
+    font-family: 'Nexa';
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.lien-evitement:focus {
+    top: 1rem;
+}
+
+/* cible du lien d'évitement : pas de contour sur <main> */
+main:focus {
+    outline: none;
+}
+
+/* contour de focus clavier, contrasté dans les deux thèmes */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+/* mouvement réduit : plus d'animations ni de défilement doux */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        translate: none;
+    }
+}
+
+/* ==========================================================
+   ADAPTATION TÉLÉPHONE / TABLETTE
+   S'ajoute aux règles @media déjà présentes plus haut.
+   ========================================================== */
+
+/* évite qu'un élément qui dépasse crée un défilement horizontal */
+html, body {
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+img, video {
+    max-width: 100%;
+}
+
+/* les effets "le bloc se soulève au survol" restent collés après un tap :
+   on les neutralise sur les écrans tactiles */
+@media (hover: none) {
+    header:hover,
+    .apropos-photo:hover,
+    .apropos-carte:hover,
+    .etape:hover,
+    .competences:hover,
+    .logiciels:hover,
+    .competences li:hover,
+    .logiciels li:hover,
+    .chiffres div:hover,
+    .carte:hover,
+    #contact .profil:hover,
+    #contact .formulaire:hover,
+    #contact .liens_profil a:hover,
+    #contact .envoyer:hover,
+    .btn-projets:hover,
+    .cv:hover,
+    nav ul a:hover {
+        transform: none;
+    }
+    header:hover { box-shadow: #7a5c00 5px 5px; }
+}
+
+/* ---------- tablette et téléphone ---------- */
+@media (max-width: 900px) {
+
+    /* header : le menu passe à la ligne au lieu d'être coupé */
+    header {
+        width: calc(100% - 2rem);
+        max-width: 100%;
+        margin-top: 1rem;
+        padding: 0.4rem 0.6rem;
+        border-width: 5px;
+        border-radius: 32px;
+        box-shadow: #7a5c00 3px 3px;
+    }
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        overflow: visible;
+        row-gap: 0;
+    }
+    nav ul a {
+        display: flex;
+        align-items: center;
+        min-height: 2.75rem;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    /* sections : plus de hauteur forcée, des marges raisonnables */
+    .contenu section,
+    #apropos {
+        min-height: auto;
+        padding: 3.5rem 1.25rem;
+    }
+    #apropos {
+        padding-top: 2.5rem;
+    }
+    .contenu h2 {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+        margin-bottom: 2rem;
+    }
+
+    /* à propos */
+    #apropos {
+        gap: 2.5rem;
+        align-items: center;
+    }
+    .apropos-photo {
+        width: min(72vw, 320px);
+    }
+    .apropos-photo img {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        width: 100%;
+        object-fit: cover;
+    }
+    .apropos-texte {
+        align-items: flex-start;
+    }
+    #apropos h1 {
+        font-size: clamp(2.6rem, 13vw, 4.2rem);
+    }
+    .apropos-carte {
+        padding: 1.25rem 1rem;
+        border-width: 5px;
+        border-radius: 24px;
+    }
+    #apropos .links {
+        width: 100%;
+        gap: 0.9rem;
+    }
+    #apropos .links a {
+        min-height: 2.75rem;
+    }
+
+    /* parcours */
+    .etapes {
+        gap: 3rem;
+    }
+
+    /* contact */
+    #contact {
+        gap: 3rem;
+    }
+    #contact input,
+    #contact textarea {
+        min-height: 3rem;
+    }
+
+    /* footer : colonnes empilées, e-mail qui peut passer à la ligne */
+    footer .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.5rem;
+        padding: 2.5rem 1.5rem 1rem;
+    }
+    .footer li,
+    .footer a {
+        overflow-wrap: anywhere;
+    }
+    .footer li a {
+        display: inline-block;
+        min-height: 2.75rem;
+        padding: 0.65rem 0;
+        text-align: left;
+    }
+
+    /* boutons flottants : taille tactile (≥ 44 px) et zones sûres des iPhone */
+    .theme-toggle,
+    .dyslexie-toggle,
+    .retour-haut {
+        width: 2.9rem;
+        height: 2.9rem;
+        bottom: calc(1.1rem + env(safe-area-inset-bottom, 0px));
+        font-size: 1.3rem;
+    }
+    .theme-toggle {
+        left: calc(1rem + env(safe-area-inset-left, 0px));
+    }
+    .dyslexie-toggle {
+        left: calc(1rem + 2.9rem + 0.8rem + env(safe-area-inset-left, 0px));
+        font-size: 1.05rem;
+    }
+    .retour-haut {
+        right: calc(1rem + env(safe-area-inset-right, 0px));
+    }
+
+    /* barre de progression plus fine */
+    .progression {
+        height: 5px;
+    }
+}
+
+/* ---------- petit téléphone ---------- */
+@media (max-width: 480px) {
+    header {
+        width: calc(100% - 1.25rem);
+        margin-top: 0.6rem;
+    }
+    nav ul {
+        justify-content: space-between;
+    }
+    nav ul a {
+        padding: 0.4rem 0.3rem;
+        border-width: 2px;
+        font-size: 0.86rem;
+    }
+    nav,
+    nav .navigation,
+    nav ul {
+        width: 100%;
+    }
+    header {
+        padding-left: 0.3rem;
+        padding-right: 0.3rem;
+    }
+    .contenu section,
+    #apropos {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    #contact .profil,
+    #contact .formulaire {
+        padding: 2.75rem 1.1rem 1.75rem;
+    }
+    #contact .liens_profil a {
+        min-height: 2.75rem;
+    }
+    #contact .envoyer {
+        width: 100%;
+    }
+    .logiciels ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- très petit téléphone (iPhone SE / mini : 375 px et moins) ---------- */
+@media (max-width: 380px) {
+    nav ul a {
+        padding: 0.4rem 0.15rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* ---------- téléphone en paysage (écran bas) ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    #contact .envoyer,
+    #contact .liens_profil a {
+        min-height: 2.75rem;
+    }
+    .contenu section,
+    #apropos {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    .theme-toggle,
+    .dyslexie-toggle,
+    .retour-haut {
+        width: 2.5rem;
+        height: 2.5rem;
+        bottom: 0.7rem;
+    }
+    .dyslexie-toggle {
+        left: calc(1rem + 2.5rem + 0.8rem);
+    }
 }
